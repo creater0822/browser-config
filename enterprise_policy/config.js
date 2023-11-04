@@ -22,6 +22,11 @@ lockPref("browser.aboutConfig.showWarning", false);
 // Disable default browser check
 lockPref("browser.shell.checkDefaultBrowser", false);
 // -------------------------------------
+// Default UI prefs (may be optional)
+defaultPref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[\"_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action\",\"_f209234a-76f0-4735-9920-eb62507a54cd_-browser-action\",\"enhancerforyoutube_maximerf_addons_mozilla_org-browser-action\",\"treestyletab_piro_sakura_ne_jp-browser-action\",\"keepassxc-browser_keepassxc_org-browser-action\",\"_0981817c-71b3-4853-a801-481c90af2e8e_-browser-action\"],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"addon_darkreader_org-browser-action\",\"customizableui-special-spring1\",\"7esoorv3_alefvanoon_anonaddy_me-browser-action\",\"pagehacker-nico_nc-browser-action\",\"_6ac85730-7d0f-4de0-b3fa-21142dd85326_-browser-action\",\"developer-button\",\"urlbar-container\",\"downloads-button\",\"_ddc359d1-844a-42a7-9aa1-88a850a938a8_-browser-action\",\"_63d150c4-394c-4275-bc32-c464e76a891c_-browser-action\",\"_66d854c2-fd1b-4857-bd0a-7d220e4834da_-browser-action\",\"simple-translate_sienori-browser-action\",\"customizableui-special-spring2\",\"save-to-pocket-button\",\"ublock0_raymondhill_net-browser-action\",\"fxa-toolbar-menu-button\",\"jid1-y3wfe7td45awdw_jetpack-browser-action\",\"_9350bc42-47fb-4598-ae0f-825e3dd9ceba_-browser-action\",\"skipredirect_sblask-browser-action\",\"_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action\",\"smart-referer_meh_paranoid_pk-browser-action\",\"canvasblocker_kkapsner_de-browser-action\",\"unified-extensions-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"firefox-view-button\",\"sidebar-button\",\"save-page-button\",\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\",\"_c607c8df-14a7-4f28-894f-29e8722976af_-browser-action\",\"_testpilot-containers-browser-action\",\"profile-switcher-ff_nd_ax-browser-action\"],\"PersonalToolbar\":[\"import-button\",\"personal-bookmarks\",\"_2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c_-browser-action\",\"zoom-controls\",\"_d07ccf11-c0cd-4938-a265-2a4d6ad01189_-browser-action\"]},\"seen\":[\"developer-button\",\"profiler-button\",\"jid1-y3wfe7td45awdw_jetpack-browser-action\",\"_63d150c4-394c-4275-bc32-c464e76a891c_-browser-action\",\"_9350bc42-47fb-4598-ae0f-825e3dd9ceba_-browser-action\",\"_f209234a-76f0-4735-9920-eb62507a54cd_-browser-action\",\"7esoorv3_alefvanoon_anonaddy_me-browser-action\",\"_testpilot-containers-browser-action\",\"enhancerforyoutube_maximerf_addons_mozilla_org-browser-action\",\"addon_darkreader_org-browser-action\",\"canvasblocker_kkapsner_de-browser-action\",\"treestyletab_piro_sakura_ne_jp-browser-action\",\"pagehacker-nico_nc-browser-action\",\"keepassxc-browser_keepassxc_org-browser-action\",\"smart-referer_meh_paranoid_pk-browser-action\",\"_2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c_-browser-action\",\"_66d854c2-fd1b-4857-bd0a-7d220e4834da_-browser-action\",\"_6ac85730-7d0f-4de0-b3fa-21142dd85326_-browser-action\",\"_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action\",\"_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action\",\"_ddc359d1-844a-42a7-9aa1-88a850a938a8_-browser-action\",\"_c607c8df-14a7-4f28-894f-29e8722976af_-browser-action\",\"_d07ccf11-c0cd-4938-a265-2a4d6ad01189_-browser-action\",\"ublock0_raymondhill_net-browser-action\",\"_0981817c-71b3-4853-a801-481c90af2e8e_-browser-action\",\"simple-translate_sienori-browser-action\",\"profile-switcher-ff_nd_ax-browser-action\",\"skipredirect_sblask-browser-action\"],\"dirtyAreaCache\":[\"unified-extensions-area\",\"nav-bar\",\"TabsToolbar\",\"PersonalToolbar\",\"toolbar-menubar\"],\"currentVersion\":19,\"newElementCount\":8}");
+defaultPref("browser.uidensity", 1); 							              // Defaults to compact UI
+defaultPref("browser.tabs.closeWindowWithLastTab", false);		  // Don't close the window with the last tab
+// -------------------------------------
 // Disable sponsored content on Firefox Home (Activity Stream)
 lockPref("browser.newtabpage.activity-stream.showSponsored", false); // [FF58+] Pocket > Sponsored Stories
 lockPref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // [FF83+] Sponsored shortcuts
@@ -32,34 +37,38 @@ lockPref("browser.topsites.contile.enabled", false);
 lockPref("browser.topsites.useRemoteSetting", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// GEOLOCATION / LANGUAGE / LOCALE
+// GEOLOCATION / LANGUAGE / LOCALE (may be optional)
 // >>>>>>>>>>>>>>>>>>>>>
 //
 // Use Mozilla geolocation service instead of Google if permission is granted [FF74+]
-lockPref("geo.provider.network.url", "");
+defaultPref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 // lockPref("geo.provider.network.logging.enabled", true); // [HIDDEN PREF]
 // -------------------------------------
 // Disable using the OS's geolocation service
-lockPref("geo.provider.ms-windows-location", false); // [WINDOWS]
-lockPref("geo.provider.use_corelocation", false); // [MAC]
-lockPref("geo.provider.use_gpsd", false); // [LINUX]
-lockPref("geo.provider.geoclue.always_high_accuracy", false); // [LINUX]
-lockPref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
+defaultPref("geo.provider.ms-windows-location", false); // [WINDOWS]
+defaultPref("geo.provider.use_corelocation", false); // [MAC]
+defaultPref("geo.provider.use_gpsd", false); // [LINUX]
+defaultPref("geo.provider.geoclue.always_high_accuracy", false); // [LINUX]
+defaultPref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 // -------------------------------------
 // Disable region updates
-lockPref("browser.region.network.url", ""); // [FF78+] Defense-in-depth
-lockPref("browser.region.update.enabled", false); // [FF79+]
+defaultPref("browser.region.network.url", ""); // [FF78+] Defense-in-depth
+defaultPref("browser.region.update.enabled", false); // [FF79+]
 // -------------------------------------
 // Set search region
-lockPref("browser.search.region", "US"); // [HIDDEN PREF]
+defaultPref("browser.search.region", "US"); // [HIDDEN PREF]
 // -------------------------------------
 // Set preferred language for displaying pages
-lockPref("intl.accept_languages", "en-US, en, nl");
+defaultPref("intl.accept_languages", "en-US, en, nl");
 // -------------------------------------
 // Use en-US locale regardless of the system or region locale
-lockPref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
-lockPref("privacy.spoof_english", 2);
-lockPref("intl.locale.requested", "en-US");
+defaultPref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
+defaultPref("privacy.spoof_english", 2);
+defaultPref("intl.locale.requested", "en-US");
+// -------------------------------------
+// Translation settings
+defaultPref("browser.translations.neverTranslateLanguages", "nl,en");
+defaultPref("browser.translations.alwaysTranslateLanguages", "ru,de,fr,pl");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // QUIETER FOX
@@ -261,21 +270,45 @@ lockPref("browser.safebrowsing.provider.mozilla.updateURL", "");
 // LOCATION BAR / SEARCH BAR / SUGGESTIONS / HISTORY / FORMS
 // >>>>>>>>>>>>>>>>>>>>>
 //
-// Disable urlbar trending search suggestions [FF118+]
-lockPref("browser.urlbar.trending.featureGate", false);
+// Disable location bar making speculative connections [FF56+]
+lockPref("browser.urlbar.speculativeConnect.enabled", false);
+//
 // -------------------------------------
-// Disable urlbar suggestions
+// 5010 Disable dropdown suggestions with empty query
+lockPref("browser.urlbar.suggest.topsites", false);
+//
+// -------------------------------------
+// Disable urlbar telemetry-related suggestions
 lockPref("browser.urlbar.addons.featureGate", false); // [FF115+]
+lockPref("browser.urlbar.eventTelemetry.enabled", false);
 lockPref("browser.urlbar.mdn.featureGate", false); // [FF117+] [HIDDEN PREF]
 lockPref("browser.urlbar.pocket.featureGate", false); // [FF116+] [DEFAULT: false]
-lockPref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
 lockPref("browser.urlbar.suggest.pocket", false);
-// -------------------------------------
-// Disable urlbar telemetry
-lockPref("browser.urlbar.eventTelemetry.enabled", false);
+lockPref("browser.urlbar.trending.featureGate", false); // [FF118+] Disable urlbar trending search suggestions
+lockPref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
 // -------------------------------------
 // Disable merino
 lockPref("browser.urlbar.merino.enabled", false);
+//
+// -------------------------------------
+// 0801 enabled urlbar search
+defaultPref("keyword.enabled", true);
+// -------------------------------------
+// Disable location bar contextual suggestions [FF92+]
+defaultPref("browser.urlbar.suggest.quicksuggest.nonsponsored", false); // [FF95+]
+defaultPref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+//
+// -------------------------------------
+// Enable useful search bar features
+defaultPref("browser.urlbar.suggest.calculator", true);
+defaultPref("browser.urlbar.unitConversion.enabled", true);
+defaultPref("browser.search.suggest.enabled", true);    		    // 0804 live search suggestions
+defaultPref("browser.urlbar.groupLabels.enabled", true);
+defaultPref("browser.urlbar.trimURLs", false);
+//
+// Other textbox related prefs
+defaultPref("browser.search.openintab", true);        // Open search in new tab
+defaultPref("layout.spellcheckDefault", 2);						// Use spellcheck in every textbox
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // HTTPS (SSL/TLS / OCSP / CERTS / HPKP)
@@ -482,22 +515,6 @@ pref("layout.css.prefers-color-scheme.content-override", 0);
 
 pref("_config.js", "End of reset-on-restart section.");
 /******************************** User-overwritable settings ********************************/
-// Default user interaction prefs
-defaultPref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[\"_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action\",\"_f209234a-76f0-4735-9920-eb62507a54cd_-browser-action\",\"enhancerforyoutube_maximerf_addons_mozilla_org-browser-action\",\"treestyletab_piro_sakura_ne_jp-browser-action\",\"keepassxc-browser_keepassxc_org-browser-action\",\"_0981817c-71b3-4853-a801-481c90af2e8e_-browser-action\"],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"addon_darkreader_org-browser-action\",\"customizableui-special-spring1\",\"7esoorv3_alefvanoon_anonaddy_me-browser-action\",\"pagehacker-nico_nc-browser-action\",\"_6ac85730-7d0f-4de0-b3fa-21142dd85326_-browser-action\",\"developer-button\",\"urlbar-container\",\"downloads-button\",\"_ddc359d1-844a-42a7-9aa1-88a850a938a8_-browser-action\",\"_63d150c4-394c-4275-bc32-c464e76a891c_-browser-action\",\"_66d854c2-fd1b-4857-bd0a-7d220e4834da_-browser-action\",\"simple-translate_sienori-browser-action\",\"customizableui-special-spring2\",\"save-to-pocket-button\",\"ublock0_raymondhill_net-browser-action\",\"fxa-toolbar-menu-button\",\"jid1-y3wfe7td45awdw_jetpack-browser-action\",\"_9350bc42-47fb-4598-ae0f-825e3dd9ceba_-browser-action\",\"skipredirect_sblask-browser-action\",\"_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action\",\"smart-referer_meh_paranoid_pk-browser-action\",\"canvasblocker_kkapsner_de-browser-action\",\"unified-extensions-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"firefox-view-button\",\"sidebar-button\",\"save-page-button\",\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\",\"_c607c8df-14a7-4f28-894f-29e8722976af_-browser-action\",\"_testpilot-containers-browser-action\",\"profile-switcher-ff_nd_ax-browser-action\"],\"PersonalToolbar\":[\"import-button\",\"personal-bookmarks\",\"_2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c_-browser-action\",\"zoom-controls\",\"_d07ccf11-c0cd-4938-a265-2a4d6ad01189_-browser-action\"]},\"seen\":[\"developer-button\",\"profiler-button\",\"jid1-y3wfe7td45awdw_jetpack-browser-action\",\"_63d150c4-394c-4275-bc32-c464e76a891c_-browser-action\",\"_9350bc42-47fb-4598-ae0f-825e3dd9ceba_-browser-action\",\"_f209234a-76f0-4735-9920-eb62507a54cd_-browser-action\",\"7esoorv3_alefvanoon_anonaddy_me-browser-action\",\"_testpilot-containers-browser-action\",\"enhancerforyoutube_maximerf_addons_mozilla_org-browser-action\",\"addon_darkreader_org-browser-action\",\"canvasblocker_kkapsner_de-browser-action\",\"treestyletab_piro_sakura_ne_jp-browser-action\",\"pagehacker-nico_nc-browser-action\",\"keepassxc-browser_keepassxc_org-browser-action\",\"smart-referer_meh_paranoid_pk-browser-action\",\"_2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c_-browser-action\",\"_66d854c2-fd1b-4857-bd0a-7d220e4834da_-browser-action\",\"_6ac85730-7d0f-4de0-b3fa-21142dd85326_-browser-action\",\"_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action\",\"_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action\",\"_ddc359d1-844a-42a7-9aa1-88a850a938a8_-browser-action\",\"_c607c8df-14a7-4f28-894f-29e8722976af_-browser-action\",\"_d07ccf11-c0cd-4938-a265-2a4d6ad01189_-browser-action\",\"ublock0_raymondhill_net-browser-action\",\"_0981817c-71b3-4853-a801-481c90af2e8e_-browser-action\",\"simple-translate_sienori-browser-action\",\"profile-switcher-ff_nd_ax-browser-action\",\"skipredirect_sblask-browser-action\"],\"dirtyAreaCache\":[\"unified-extensions-area\",\"nav-bar\",\"TabsToolbar\",\"PersonalToolbar\",\"toolbar-menubar\"],\"currentVersion\":19,\"newElementCount\":8}");
-defaultPref("browser.uidensity", 1); 							              // Defaults to compact UI
-defaultPref("browser.search.openintab", true);					        // Open search in new tab
-defaultPref("browser.tabs.closeWindowWithLastTab", false);		  // Don't close the window with the last tab
-defaultPref("layout.spellcheckDefault", 2);						          // Use spellcheck in every textbox
-
-// PREF: Enable useful URL-bar features
-defaultPref("keyword.enabled", true);                   		    // 0801 enabled urlbar search
-defaultPref("browser.search.suggest.enabled", true);    		    // 0804 live search suggestions
-defaultPref("browser.urlbar.suggest.topsites", false);			    // 5010 Disable dropdown suggestions with empty query
-defaultPref("browser.urlbar.suggest.calculator", true);
-defaultPref("browser.urlbar.unitConversion.enabled", true);
-defaultPref("browser.urlbar.quicksuggest.enabled", false);
-defaultPref("browser.urlbar.groupLabels.enabled", true);
-defaultPref("browser.urlbar.trimURLs", false);
 
 // PREF: Download settings
 defaultPref("browser.download.useDownloadDir", false);			    // Always ask where to save the download
@@ -507,10 +524,6 @@ defaultPref("browser.download.useDownloadDir", false);			    // Always ask where
 defaultPref("browser.tabs.loadBookmarksInTabs", true);			    // force bookmarks to open in a new tab, not the current tab
 defaultPref("browser.bookmarks.openInTabClosesMenu", false);	  // leave Bookmarks Menu open when selecting a site
 defaultPref("browser.toolbars.bookmarks.visibility", "always");
-
-// PREF: Translation settings
-defaultPref("browser.translations.neverTranslateLanguages", "nl,en");
-defaultPref("browser.translations.alwaysTranslateLanguages", "ru,de,fr,pl");
 
 // PREF: Startup extension Settings
 defaultPref("extensions.autoDisableScopes", 14);				// Install local extensions
@@ -529,13 +542,6 @@ defaultPref("privacy.query_stripping", true);
 defaultPref("privacy.trackingprotection.pbmode.enabled", true);
 defaultPref("webgl.renderer-string-override", " ");
 defaultPref("webgl.vendor-string-override", " ");
-
-// PREF: Disable experimental features
-defaultPref("experiments.activeExperiment", false);
-defaultPref("experiments.enabled", false);
-defaultPref("experiments.manifest.uri", "");
-defaultPref("experiments.supported", false);
-defaultPref("network.allow-experiments", false);
 
 // PREF: Smooth scrolling recommended for 60hz+ displays
 defaultPref("general.smoothScroll", true); 					            // DEFAULT
