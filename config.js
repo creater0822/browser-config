@@ -375,10 +375,6 @@ lockPref("device.sensors.proximity.enabled", false);
 lockPref("dom.battery.enabled", false);
 lockPref("dom.vibrator.enabled", false);
 //
-// -------------------------------------
-// prefsCleaner: previously active items removed from arkenfox 115-117
-lockPref("accessibility.force_disabled", "");
-//
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // NON-PROJECT RELATED
 // >>>>>>>>>>>>>>>>>>>>>
