@@ -1,11 +1,14 @@
 {
     "policies": {
         "DisplayMenuBar": true,
+        "OverrideFirstRunPage": "",
+        "OverridePostUpdatePage": "",
         "DisableFirefoxAccounts": true,
         "DisableFirefoxStudies": true,
         "DisablePocket": true,
         "DisableTelemetry": true,
         "DisableFeedbackCommands": true,
+        "DisableDeveloperTools": false,
         "ExtensionSettings": {
             "uBlock0@raymondhill.net": {
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi",
@@ -123,6 +126,16 @@
                 "installation_mode": "blocked"
             }
         },
+        "NoDefaultBookmarks": true,
+        "Extensions": {
+            "Uninstall": [
+                "google@search.mozilla.org",
+                "bing@search.mozilla.org",
+                "amazondotcom@search.mozilla.org",
+                "ebay@search.mozilla.org",
+                "twitter@search.mozilla.org"
+            ]
+        },
         "UserMessaging": {
             "FeatureRecommendations": false,
             "MoreFromMozilla": false
@@ -132,6 +145,8 @@
             "security.ssl.errorReporting.enabled": false
         },
         "SearchEngines": {
+            "PreventInstalls": false,
+            "Remove": ["Bing", "Amazon.com", "Amazon.nl", "DuckDuckGo", "eBay"],
             "Add": [{
                     "Name": "Youtube",
                     "URLTemplate": "https://www.youtube.com/results?search_query={searchTerms}",
@@ -141,8 +156,33 @@
                     "Description": "Search for videos on YouTube",
                     "SuggestURLTemplate": "https://www.youtube.com/results?search_query={searchTerms}"
                 }
+            ]
+        },
+        "policies": {
+            "Cookies": {
+            "Allow": [
+                "https://codeberg.org/",
+                "https://discord.com/",
+                "https://drive.google.com/",
+                "https://fearlessrevolution.com/",
+                "https://forums.mydigitallife.net/",
+                "https://git.nixnet.services/",
+                "https://github.com/",
+                "https://gitlab.com/",
+                "https://google.com/",
+                "https://mail.google.com/",
+                "https://piped.video/",
+                "https://proton.me/",
+                "https://skiff.com/",
+                "https://stackexchange.com/",
+                "https://stackoverflow.com/",
+                "https://www.bol.com/",
+                "https://xdaforums.com/",
+                "https://youtube.com/"
             ],
-            "Remove": ["Bing", "Amazon.com", "Amazon.nl", "DuckDuckGo", "eBay"]
+            "Block": ["https://facebook.com/","https://instagram.com/","https://twitter.com/","https://x.com/"],
+            "RejectTracker": true
+            }
         },
         "EnableTrackingProtection": {
             "Cryptomining": true
