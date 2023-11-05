@@ -24,33 +24,54 @@ Then from within any Firefox profile > Extension icon > Manage profiles > Cog ic
 4. Extract everything from `ffProfile_Arkenfox.zip`, also extract `update.bat` and `prefsCleaner.bat` from the `user.js-[latest version].zip` .
 5. Run `update.bat` as Administrator, then select 'Y' (yes) to also run the **prefsCleaner**.
 
-**Included in `prefs.js`:**
-- (Temporary) My preferred UI preset.
+<details>
+  <summary>Included in <b>prefs.js</b></summary>
 
-**Included in `user-overrides.js`:**
-- Re-enabled URL-bar live search suggestions.
-- Starting page and new tabs set to `about:home`
-- Disabled Sanitize On Shutdown
-- Disabled websites from requesting Geo and XR access
-- Disabled RFP (ResistFingerPrinting)
-- Don't disable WebGL (pointless to do when not using RFP)
-- Enabled DRM-content
-- Disable raw TCP socket support (mozTCPSocket)
-- Don't monitor OS online/offline connection state
-- Disallow NTLMv1 unless through HTTPS
-- Some anti-breakage settings to Arkenfox user.js
-- Enabled Encrypted client Hello
-- Disabled vulnerable ciphers
-- UserChromeCSS settings
+  ```
+    My preferred UI preset.
+  ```
+</details>
+<details>
+  <summary>Included in <b>user-overrides.js</b></summary>
 
-**Included extensions:**
-- CookiesAutoDelete (doesn't work that great with Multi-Account Container)
-- Canvas Blocker (compensate for disabling RFP)
-- LibRedirect (redirects popular webservices to alternative front-ends)
-- Skip Redirects (skips redirect-URLs)
+  ```
+    Re-enabled URL-bar live search suggestions.
+    Starting page and new tabs set to `about:home`
+    Disabled Sanitize On Shutdown
+    Disabled websites from requesting Geo and XR access
+    Disabled RFP (ResistFingerPrinting)
+    Don't disable WebGL (pointless to do when not using RFP)
+    Enabled DRM-content
+    Disable raw TCP socket support (mozTCPSocket)
+    Don't monitor OS online/offline connection state
+    Disallow NTLMv1 unless through HTTPS
+    Some anti-breakage settings to Arkenfox user.js
+    Enabled Encrypted client Hello
+    Disabled vulnerable ciphers
+    UserChromeCSS settings
+  ```
+</details>
+<details>
+  <summary>Included extensions (as .xpi)</summary>
 
-**Other features**
-- Search Engine preset: Startpage (as default), RSWiki, Choco, SearXNG NicFab
+  ```
+    CookiesAutoDelete (doesn't work that great with Multi-Account Container)
+    Canvas Blocker (compensate for disabling RFP)
+    LibRedirect (redirects popular webservices to alternative front-ends)
+    Skip Redirects (skips redirect-URLs)
+  ```
+</details>
+<details>
+  <summary>Search Engines</summary>
+
+  ```
+    Default: Startpage.com
+    Added: SearXNG NicFab
+    Added: Chocolatey package search
+    Added: RSWiki
+  ```
+</details>
+<br>
 
 ### ffProfile Weakfox:
 **How to install:**
@@ -58,9 +79,14 @@ Then from within any Firefox profile > Extension icon > Manage profiles > Cog ic
 2. On the new profile entry, press "Open Folder" on **Root Directory** .
 3. Extract everything from `ffProfile_Weakfox.zip`, that's it.
 
-**Features:**
-- UserChromeCSS
-- Search Engine preset: Same as ffProfile Arkenfox
+<details>
+  <summary>Search Engines</summary>
+
+  ```
+    UserChromeCSS
+    Search Engine preset: Same as ffProfile Arkenfox
+  ```
+</details>
 
 ## Credits:
 - Narsil user.js: https://codeberg.org/Narsil/user.js
