@@ -492,7 +492,44 @@ lockPref("security.family_safety.mode", 0);                       // Disable Win
 lockPref("security.tls.version.enable-deprecated", false); 				// 6010: enforce no TLS 1.0/1.1 downgrades
 lockPref("toolkit.coverage.enabled", false);
 //
-// END OF LOCKED SETTINGS
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// Advanced Betterfox section
+// >>>>>>>>>>>>>>>>>>>>>
+// PREF: Cookie Banner handling [NIGHTLY]
+// [NOTE] Feature still enforces Total Cookie Protection to limit 3rd-party cookie tracking [1]
+// [1] https://github.com/mozilla/cookie-banner-rules-list/issues/33#issuecomment-1318460084
+// [2] https://phabricator.services.mozilla.com/D153642
+// [3] https://winaero.com/make-firefox-automatically-click-on-reject-all-in-cookie-banner-consent/
+// [4] https://docs.google.com/spreadsheets/d/1Nb4gVlGadyxix4i4FBDnOeT_eJp2Zcv69o-KfHtK-aA/edit#gid=0
+// 2: reject banners if it is a one-click option; otherwise, fall back to the accept button to remove banner
+// 1: reject banners if it is a one-click option; otherwise, keep banners on screen
+// 0: disable all cookie banner handling
+lockPref("cookiebanners.service.mode", 2);
+lockPref("cookiebanners.service.mode.privateBrowsing", 2);
+
+// PREF: initial paint delay
+// How long FF will wait before rendering the page, in milliseconds
+// Reduce the 5ms Firefox waits to render the page
+// [1] https://bugzilla.mozilla.org/show_bug.cgi?id=1283302
+// [2] https://docs.google.com/document/d/1BvCoZzk2_rNZx3u9ESPoFjSADRI0zIPeJRXFLwWXx_4/edit#heading=h.28ki6m8dg30z
+lockPref("nglayout.initialpaint.delay", 0); // default=5; used to be 250
+lockPref("nglayout.initialpaint.delay_in_oopif", 0); // default=5
+
+// PREF: use bigger packets
+// [1] https://www.mail-archive.com/support-seamonkey@lists.mozilla.org/msg74561.html
+// [2] https://www.mail-archive.com/support-seamonkey@lists.mozilla.org/msg74570.html
+lockPref("network.buffer.cache.size", 262144); // preferred=327680; default=32768
+lockPref("network.buffer.cache.count", 128); // preferred=240; default=24
+
+// PREF: increase the absolute number of HTTP connections
+// [1] https://kb.mozillazine.org/Network.http.max-connections
+// [2] https://kb.mozillazine.org/Network.http.max-persistent-connections-per-server
+// [3] https://old.reddit.com/r/firefox/comments/11m2yuh/how_do_i_make_firefox_use_more_of_my_900_megabit/jbfmru6/
+lockPref("network.http.max-connections", 1800); // default=900
+lockPref("network.http.max-persistent-connections-per-server", 10); // default=6; download connections; anything above 10 is excessive
+
+// PREF: increase TLS token caching 
+lockPref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS token caching (fast reconnects)
 //
 pref("_config.js", "End of lockPref section.");
 /******************************** System-default settings ********************************/

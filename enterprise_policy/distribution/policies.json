@@ -17,6 +17,14 @@
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/violentmonkey/latest.xpi",
                 "default_area": "navbar"
             },
+            "@testpilot-containers": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi",
+                "installation_mode": "force_installed"
+            },
+            "{c607c8df-14a7-4f28-894f-29e8722976af}": {
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/temporary-containers/latest.xpi",
+                "installation_mode": "force_installed"
+            },
             "addon@darkreader.org": {
                 "installation_mode": "force_installed",
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi"
