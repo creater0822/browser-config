@@ -71,7 +71,6 @@ Then from within any Firefox profile > Extension icon > Manage profiles > Cog ic
     Added: RSWiki
   ```
 </details>
-<br>
 
 ### ffProfile Weakfox:
 **How to install:**
