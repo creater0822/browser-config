@@ -1,0 +1,67 @@
+Windows Registry Editor Version 5.00
+; Chromium // Thorium config
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Chromium]
+"AbusiveExperienceInterventionEnforce"=dword:00000001
+"AdsSettingForIntrusiveAdsSites"=dword:00000002
+"AllowDeletingBrowserHistory"=dword:00000001
+"AllowDinosaurEasterEgg"=dword:00000001
+"AutofillAddressEnabled"=dword:00000000
+"AutofillCreditCardEnabled"=dword:00000000
+"BrowserSignin"=dword:00000000
+"CloudAPAuthEnabled"=dword:00000000
+"CloudPrintProxyEnabled"=dword:00000000
+"DefaultBrowserSettingEnabled"=dword:00000000
+"DefaultSensorsSetting"=dword:00000002
+"DefaultSerialGuardSetting"=dword:00000002
+"DesktopSharingHubEnabled"=dword:00000001
+"DeveloperToolsAvailability"=dword:00000001
+"DownloadRestrictions"=dword:00000000
+"EnterpriseHardwarePlatformAPIEnabled"=dword:00000000
+"ForceGoogleSafeSearch"=dword:00000000
+"MediaRecommendationsEnabled"=dword:00000000
+"MetricsReportingEnabled"=dword:00000000
+"PaymentMethodQueryEnabled"=dword:00000000
+"PromotionalTabsEnabled"=dword:00000000
+"RemoteDebuggingAllowed"=dword:00000000
+"SafeBrowsingExtendedReportingEnabled"=dword:00000000
+"ShowCastIconInToolbar"=dword:00000000
+"ShowHomeButton"=dword:00000001
+"SyncDisabled"=dword:00000001
+"UserFeedbackAllowed"=dword:00000000
+"WebRtcEventLogCollectionAllowed"=dword:00000000
+"WindowOcclusionEnabled"=dword:00000001
+;"EnableMediaRouter"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Chromium\ForcedLanguages]
+"1"="en-US"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Chromium\SpellcheckLanguage]
+"1"="en-US"
+"2"="nl"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Chromium\DefaultSearchProviderEncodings]
+"1"="UTF-8"
+"2"="UTF-16"
+"3"="GB2312"
+"4"="ISO-8859-1"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\ExtensionInstallAllowlist]
+"1"="oladmjdebphlnjjcnomfhhbfdldiimaf" ; Allow LibRedirect
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Chromium\ExtensionInstallForcelist]
+"1"="cjpalhdlnbpafiamejdnhcphjbkeiagm;https://clients2.google.com/service/update2/crx" ; uBlock Origin
+"2"="jinjaccalgkegednnccohejagnlnfdag;https://clients2.google.com/service/update2/crx" ; Violentmonkey
+"3"="ibplnjkanclpjokhdolnendpplpjiace;https://clients2.google.com/service/update2/crx" ; Simply Translate
+"4"="eimadpbcbfnmbkopoojfekhnkhdbieeh;https://clients2.google.com/service/update2/crx" ; Dark Reader
+"5"="dahfohiipmpcppjbablgfoggbogdmddp;https://clients2.google.com/service/update2/crx" ; Thorium Material Dark Theme
+"6"="oboonakemofpalcgghocfoadofidjkkk;https://clients2.google.com/service/update2/crx" ; KeePassXC-Browser
+"7"="ponfpcnoihfmfllpaingbgckeeldkhle;https://clients2.google.com/service/update2/crx" ; Enhancer for Youtube
+"8"="mmioliijnhnoblpgimnlajmefafdfilb;https://clients2.google.com/service/update2/crx" ; Shazam
+"9"="onepmapfbjohnegdmfhndpefjkppbjkm;https://clients2.google.com/service/update2/crx" ; SuperCopy, Allow Right Click and Copy
+"10"="jjmflmamggggndanpgfnpelongoepncg;https://clients2.google.com/service/update2/crx" ; Extensity
+"11"="edibdbjcniadpccecjdfdjjppcpchdlm;https://clients2.google.com/service/update2/crx" ; I still don't care about cookies
+"12"="bigefpfhnfcobdlfbedofhhaibnlghod;https://clients2.google.com/service/update2/crx" ; MEGA
+"13"="immpkjjlgappgfkkfieppnmlhakdmaab;https://clients2.google.com/service/update2/crx" ; Imagus
+"14"="dlnpfhfhmkiebpnlllpehlmklgdggbhn;https://clients2.google.com/service/update2/crx" ; Don't Close Window With Last Tab
+"15"="dpacanjfikmhoddligfbehkpomnbgblf;https://clients2.google.com/service/update2/crx" ; AHA Music - Song Finder for Browser
