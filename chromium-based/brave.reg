@@ -26,13 +26,19 @@ Windows Registry Editor Version 5.00
 "WindowOcclusionEnabled"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\Software\Policies\BraveSoftware\Brave\ExtensionInstallForcelist]
-; uBlock Origin
-"1"="cjpalhdlnbpafiamejdnhcphjbkeiagm;https://clients2.google.com/service/update2/crx"
-"2"="jinjaccalgkegednnccohejagnlnfdag;https://clients2.google.com/service/update2/crx"
-"3"="ibplnjkanclpjokhdolnendpplpjiace;https://clients2.google.com/service/update2/crx"
-"4"="eimadpbcbfnmbkopoojfekhnkhdbieeh;https://clients2.google.com/service/update2/crx"
-"5"="aghfnjkcakhmadgdomlmlhhaocbkloab;https://clients2.google.com/service/update2/crx"
-"6"="oboonakemofpalcgghocfoadofidjkkk;https://clients2.google.com/service/update2/crx"
-"7"="ponfpcnoihfmfllpaingbgckeeldkhle;https://clients2.google.com/service/update2/crx"
-"8"="dpacanjfikmhoddligfbehkpomnbgblf;https://clients2.google.com/service/update2/crx"
-"9"="onepmapfbjohnegdmfhndpefjkppbjkm;https://clients2.google.com/service/update2/crx"
+"1"="cjpalhdlnbpafiamejdnhcphjbkeiagm;https://clients2.google.com/service/update2/crx" ; uBlock Origin
+"2"="jinjaccalgkegednnccohejagnlnfdag;https://clients2.google.com/service/update2/crx" ; Violentmonkey
+"3"="ibplnjkanclpjokhdolnendpplpjiace;https://clients2.google.com/service/update2/crx" ; Simply Translate
+"4"="eimadpbcbfnmbkopoojfekhnkhdbieeh;https://clients2.google.com/service/update2/crx" ; Dark Reader
+"5"="dahfohiipmpcppjbablgfoggbogdmddp;https://clients2.google.com/service/update2/crx" ; Thorium Material Dark Theme
+"6"="oboonakemofpalcgghocfoadofidjkkk;https://clients2.google.com/service/update2/crx" ; KeePassXC-Browser
+"7"="ponfpcnoihfmfllpaingbgckeeldkhle;https://clients2.google.com/service/update2/crx" ; Enhancer for Youtube
+"8"="mmioliijnhnoblpgimnlajmefafdfilb;https://clients2.google.com/service/update2/crx" ; Shazam
+"9"="onepmapfbjohnegdmfhndpefjkppbjkm;https://clients2.google.com/service/update2/crx" ; SuperCopy, Allow Right Click and Copy
+"10"="jjmflmamggggndanpgfnpelongoepncg;https://clients2.google.com/service/update2/crx" ; Extensity
+"11"="edibdbjcniadpccecjdfdjjppcpchdlm;https://clients2.google.com/service/update2/crx" ; I still don't care about cookies
+"12"="bigefpfhnfcobdlfbedofhhaibnlghod;https://clients2.google.com/service/update2/crx" ; MEGA
+"13"="immpkjjlgappgfkkfieppnmlhakdmaab;https://clients2.google.com/service/update2/crx" ; Imagus
+"14"="dlnpfhfhmkiebpnlllpehlmklgdggbhn;https://clients2.google.com/service/update2/crx" ; Don't Close Window With Last Tab
+"15"="dpacanjfikmhoddligfbehkpomnbgblf;https://clients2.google.com/service/update2/crx" ; AHA Music - Song Finder for Browser
+"16"="fkagelmloambgokoeokbpihmgpkbgbfm;https://clients2.google.com/service/update2/crx" ; Indie Wiki Buddy

@@ -113,6 +113,10 @@
                 "installation_mode": "normal_installed",
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/user-agent-string-switcher/latest.xpi"
             },
+            "{cb31ec5d-c49a-4e5a-b240-16c767444f62}": {
+                "installation_mode": "normal_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/indie-wiki-buddy/latest.xpi"
+            },
             "amazon@search.mozilla.org": {
                 "installation_mode": "blocked"
             },
