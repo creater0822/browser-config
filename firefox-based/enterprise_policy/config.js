@@ -267,6 +267,25 @@ lockPref("browser.safebrowsing.provider.mozilla.gethashURL", "");
 lockPref("browser.safebrowsing.provider.mozilla.updateURL", "");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// BLOCK IMPLICIT OUTBOUND
+// >>>>>>>>>>>>>>>>>>>>>
+//
+// Disable DNS prefetching
+lockPref("network.dns.disablePrefetch", true);
+// defaultPref("network.dns.disablePrefetchFromHTTPS", true); // [DEFAULT: true]
+// -------------------------------------
+// Disable predictor / prefetching
+lockPref("network.predictor.enabled", false);
+lockPref("network.predictor.enable-prefetch", false); // [FF48+] [DEFAULT: false]
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// DNS / DoH / PROXY / SOCKS
+// >>>>>>>>>>>>>>>>>>>>>
+//
+// Disable skipping DoH when parental controls are enabled [FF70+]
+lockPref("network.dns.skipTRR-when-parental-control-enabled", false);
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // LOCATION BAR / SEARCH BAR / SUGGESTIONS / HISTORY / FORMS
 // >>>>>>>>>>>>>>>>>>>>>
 //
@@ -309,6 +328,25 @@ defaultPref("browser.urlbar.trimURLs", false);
 // Other textbox related prefs
 defaultPref("browser.search.openintab", true);        // Open search in new tab
 defaultPref("layout.spellcheckDefault", 2);						// Use spellcheck in every textbox
+//
+// PREF: enable option to add custom search engine
+// [SETTINGS] Settings -> Search -> Search Shortcuts -> Add
+// [EXAMPLE] https://search.brave.com/search?q=%s
+// [EXAMPLE] https://lite.duckduckgo.com/lite/?q=%s
+// [1] https://reddit.com/r/firefox/comments/xkzswb/adding_firefox_search_engine_manually/
+lockPref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// DISK AVOIDANCE
+// >>>>>>>>>>>>>>>>>>>>>
+//
+// Disable media cache from writing to disk in Private Browsing
+lockPref("browser.privatebrowsing.forceMediaMemoryCache", true); // [FF75+]
+defaultPref("media.memory_cache_max_size", 65536);
+// -------------------------------------
+// Disable storing extra session data [SETUP-CHROME]
+// 0=everywhere, 1=unencrypted sites, 2=nowhere
+defaultPref("browser.sessionstore.privacy_level", 1);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // HTTPS (SSL/TLS / OCSP / CERTS / HPKP)
@@ -361,8 +399,9 @@ lockPref("devtools.debugger.remote-enabled", false); // [DEFAULT: false]
 lockPref("permissions.manager.defaultsUrl", "");
 // -------------------------------------
 // Enforce PDFJS, disable PDFJS scripting
-lockPref("pdfjs.disabled", false); // [DEFAULT: false]
-lockPref("pdfjs.enableScripting", false); // [FF86+]
+lockPref("pdfjs.disabled", false);          // [DEFAULT: false]
+lockPref("pdfjs.enableScripting", false);   // [FF86+]
+lockPref("pdfjs.sidebarViewOnLoad", 2);     // 2=table of contents (if not available, will default to 1=view pages)
 // -------------------------------------
 // Disable the default checkedness for "Save card and address to Firefox" checkboxes
 lockPref("dom.payments.defaults.saveAddress", false);
@@ -371,10 +410,25 @@ lockPref("dom.payments.defaults.saveCreditCard", false);
 // Disable Displaying Javascript in History URLs
 lockPref("browser.urlbar.filter.javascript", true);
 //
+// PREF: show all matches in Findbar
+lockPref("findbar.highlightAll", true);
+//
 // EXTENSIONS
 //
 // Disable extensions suggestions
 lockPref("extensions.webservice.discoverURL", "");
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// SHUTDOWN & SANITIZING
+// >>>>>>>>>>>>>>>>>>>>>
+//
+// PREF: set History section to show all options
+// Settings>Privacy>History>Use custom settings for history
+// [INFOGRAPHIC] https://bugzilla.mozilla.org/show_bug.cgi?id=1765533#c1
+lockPref("privacy.history.custom", true);
+//
+// Enable Firefox to clear items on shutdown
+defaultPref("privacy.sanitize.sanitizeOnShutdown", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DON'T TOUCH
@@ -460,24 +514,32 @@ lockPref("browser.newtabpage.activity-stream.fxaccounts.endpoint", "");
 // More telemetry
 lockPref("browser.search.serpEventTelemetry.enabled", false);
 lockPref("dom.security.unexpected_system_load_telemetry_enabled", false);
+lockPref("loop.logDomains", false);	// Disable Firefox Hello metrics collection
+lockPref("messaging-system.rsexperimentloader.enabled", false);
 lockPref("network.trr.confirmation_telemetry_enabled", false);
+lockPref("privacy.trackingprotection.emailtracking.data_collection.enabled", false);
 lockPref("security.app_menu.recordEventTelemetry", false);
 lockPref("security.certerrors.recordEventTelemetry", false);
 lockPref("security.protectionspopup.recordEventTelemetry", false);
-lockPref("loop.logDomains", false);									// Disable Firefox Hello metrics collection
+lockPref("signon.recipes.remoteRecipes.enabled", false);
 // -------------------------------------
 // Worthless features
 lockPref("browser.tabs.firefox-view", false);       // Disable Firefox View
+lockPref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}"); // disable the Firefox View tour from popping up
 lockPref("dom.flyweb.enabled", false);              // Disable flyweb
 // -------------------------------------
 // Greasemonkey telemetry
 lockPref("extensions.greasemonkey.stats.optedin", false);
 lockPref("extensions.greasemonkey.stats.url", "");
 // -------------------------------------
+// Disable Extension Recommendations (CFR: "Contextual Feature Recommender")
+// [1] https://support.mozilla.org/en-US/kb/extension-recommendations
+lockPref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false);
+lockPref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
+// -------------------------------------
 // OTHER
 lockPref("browser.aboutwelcome.enabled", false);                  // disable Intro screens
 lockPref("browser.chrome.toolbar_tips", false);                   // Disable useless UI-tooltips
-lockPref("browser.compactmode.show", true);                       // Enable compact mode to be used
 lockPref("browser.disableResetPrompt", true);					            // Don't ask the user to reset Firefox
 lockPref("browser.download.autohideButton", false);		            // Don't autohide the download button
 lockPref("browser.helperApps.deleteTempFileOnExit", true); 			  // Remove temp files opened with an external application
@@ -487,6 +549,7 @@ lockPref("browser.selfsupport.url", "");
 lockPref("browser.startup.upgradeDialog.enabled", false);				  // Disable moments page when updated
 lockPref("extensions.webcompat-reporter.enabled", false); 				// 6011: enforce disabling of Web Compatibility Reporter [FF56+]
 lockPref("permissions.delegation.enabled", false); 						    // Any prompt for permissions will show the correct 3rd party origin
+lockPref("privacy.partition.bloburl_per_partition_key", true);    // [FF118+] Separates API caches per website
 lockPref("privacy.usercontext.about_newtab_segregation.enabled", true);
 lockPref("security.family_safety.mode", 0);                       // Disable Windows Microsoft Family Safety cert [FF50+] [WINDOWS]
 lockPref("security.tls.version.enable-deprecated", false); 				// 6010: enforce no TLS 1.0/1.1 downgrades
@@ -530,6 +593,26 @@ lockPref("network.http.max-persistent-connections-per-server", 10); // default=6
 
 // PREF: increase TLS token caching 
 lockPref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS token caching (fast reconnects)
+
+// PREF: disable form autofill
+// [NOTE] stored data is not secure (uses a JSON file)
+// [1] https://wiki.mozilla.org/Firefox/Features/Form_Autofill
+// [2] https://www.ghacks.net/2017/05/24/firefoxs-new-form-autofill-is-awesome
+lockPref("extensions.formautofill.addresses.enabled", false);
+lockPref("extensions.formautofill.creditCards.enabled", false);
+
+// PREF: force WebRTC inside the proxy [FF70+]
+user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
+
+// PREF: Firefox Translations [NIGHTLY]
+// Automated translation of web content is done locally in Firefox, so that
+// the text being translated does not leave your machine.
+// [ABOUT] Visit about:translations to translate your own text as well.
+// [1] https://blog.mozilla.org/en/mozilla/local-translation-add-on-project-bergamot/
+// [2] https://blog.nightly.mozilla.org/2023/06/01/firefox-translations-and-other-innovations-these-weeks-in-firefox-issue-139/
+// [3] https://www.ghacks.net/2023/08/02/mozilla-firefox-117-beta-brings-an-automatic-language-translator-for-websites-and-it-works-offline/
+defaultPref("browser.translations.enable", true);
+    //defaultPref("browser.translations.autoTranslate", true);
 //
 pref("_config.js", "End of lockPref section.");
 /******************************** System-default settings ********************************/
@@ -552,22 +635,11 @@ pref("layout.css.prefers-color-scheme.content-override", 0);
 
 pref("_config.js", "End of reset-on-restart section.");
 /******************************** User-overwritable settings ********************************/
-
-// PREF: Download settings
-defaultPref("browser.download.useDownloadDir", false);			    // Always ask where to save the download
-//defaultPref("browser.safebrowsing.downloads.enabled", false);
-
-// PREF: Bookmark settings
-defaultPref("browser.tabs.loadBookmarksInTabs", true);			    // force bookmarks to open in a new tab, not the current tab
-defaultPref("browser.bookmarks.openInTabClosesMenu", false);	  // leave Bookmarks Menu open when selecting a site
-defaultPref("browser.toolbars.bookmarks.visibility", "always");
-
 // PREF: Startup extension Settings
 defaultPref("extensions.autoDisableScopes", 14);				// Install local extensions
 defaultPref("extensions.FirefoxMulti-AccountContainers@mozilla.whiteList", "");
 defaultPref("extensions.TemporaryContainers@stoically.whiteList", "");
 defaultPref("extensions.getAddons.cache.enabled", false);
-defaultPref("extensions.webservice.discoverURL", "");
 
 // PREF: Autoplay
 defaultPref("media.autoplay.default", 0);
@@ -581,10 +653,24 @@ defaultPref("webgl.renderer-string-override", " ");
 defaultPref("webgl.vendor-string-override", " ");
 
 // PREF: Smooth scrolling recommended for 60hz+ displays
+defaultPref("apz.overscroll.enabled", true);                    // not DEFAULT on Linux
 defaultPref("general.smoothScroll", true); 					            // DEFAULT
 defaultPref("mousewheel.default.delta_multiplier_y", 275);      // 250-400
 
 pref("_config.js", "End of overwritable section.");
+/******************************** UI Section ********************************/
+lockPref("browser.compactmode.show", true);                     // Enable compact mode to be used
+defaultPref("browser.download.useDownloadDir", false);			    // Always ask where to save the download
+defaultPref("toolkit.legacyUserProfileCustomizations.stylesheets", true); // Enable Firefox to use userChome, userContent, etc.
+
+// PREF: Bookmark settings
+defaultPref("browser.tabs.loadBookmarksInTabs", true);			    // force bookmarks to open in a new tab, not the current tab
+defaultPref("browser.bookmarks.openInTabClosesMenu", false);	  // leave Bookmarks Menu open when selecting a site
+defaultPref("browser.toolbars.bookmarks.visibility", "always");
+
+// PREF: restore "View image info" on right-click
+lockPref("browser.menu.showViewImageInfo", true);
+
 /******************************** Firefox userChromeJS: ********************************/
 lockPref('xpinstall.signatures.required', false);
 lockPref('extensions.install_origins.enabled', false);
