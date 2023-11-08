@@ -1,0 +1,74 @@
+# Full-blockable garbage websites:
+- Twitter (never understood the reason of its existence)
+- Instagram (garbage photoshop filters and ugly insects)
+- Pinterest (never used, hence never need)
+- TikTok (garbage shorts)
+- Snapchat (garbage phone app)
+- Linkedin (too pretentious and useless for my daily usage)
+- Telegram (afaik only used by inferior software engineers, e.g. XDA devs)
+- Slack (Kind of good chat platform, but stuff are locked behind paywall)
+- Whatsapp (too many spam-scammers and too much bloatware)
+- IMDb (don't like watching movies/series at all)
+- Netflix (garbage paywall and useless for me)
+- Youtube Music (invidious or piped.video are superior and free)
+- Pixiv (I'm not a GunSlinger)
+- Reuters (fake news no thanks)
+- DeepL (non-paid is just as privacy-disrespectful as Google)
+- Yahoo (absolute garbage, say no more)
+
+
+# Full-blockable game services:
+- Steam (GOG and piracy are superior, maybe unblocking the forum for game guides)
+- Ubisoft (Same reason as Steam)
+- Origin (Same reason as Steam)
+- EpicGames (Same reason as Steam)
+- Blizzard (Absolute garbage games)
+
+
+# Garbage that's somewhat useful:
+- Facebook (Bullying imbeciles & proclaiming any social media acc with your real name on it are frauds)
+- Reddit (r/uBlockOrigin is good)
+- Youtube (for limitless video storage space)
+- Google images (reverse image search from pictures)
+- Quora (rarely needed when searching for random questions)
+- Bilibili (inferior language, but less bloated than Youtube and has good cat videos)
+
+
+# Good websites:
+- Search Engine: https://startpage.com
+- Manga (for Dragon Ball & Deadman Wonderland): https://mangadex.org
+- Pastebin alternative: https://pastefy.app
+- Anime (DB Super, Deadman Wonderland, Overlord): 
+	* https://animepahe.com/ (no English dubs)
+	* https://gogoanime.in/ (bit more bloatware)
+	* https://aniwave.to/
+
+
+# Superior Discord usage:
+- Run as Brave-app with uBLock Origin filter: ||discord.com/api/v9/science$xhr,1p
+- ArmCord: https://github.com/ArmCord/ArmCord
+- WebCord: https://github.com/SpacingBat3/WebCord
+
+
+# Alternative frontends WORTH self-hosting:
+Search engine: SearXNG
+Youtube: piped.video
+Google Translate: https://lingva.lunar.icu/
+
+
+# Alternative frontends NOT WORTH self-hosting:
+- Medium: (useful for Data Scientists)
+	* https://scribe.rip
+	* https://libmedium.batsense.net
+- Speedtest: (No graph over time)
+	* (LibreSpeed)[https://librespeed.org]
+- Quora: (No drawback)
+	* (Quetre)[https://quetre.iket.me]
+- Bilibili: (Can't comment, no playlist)
+	* (MikuInvidious)[https://mikuinv.resrv.org]
+- Twitch: (Can't live comment)
+	* (SafeTwitch)[https://safetwitch.drgns.space]
+- Reddit: (Can't post)
+	* (Libreddit)[https://safereddit.com]
+- Genius: (searching lyrics, no drawback)
+	* (Dumb)[https://dumb.lunar.icu/]
