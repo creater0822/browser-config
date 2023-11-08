@@ -36,6 +36,11 @@
                 "installation_mode": "force_installed",
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/matte-black-red/latest.xpi"
             },
+            "@ublacklist": {
+                "installation_mode": "force_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublacklist/latest.xpi",
+                "default_area": "navbar"
+            },
             "simple-translate@sienori": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/simple-translate/latest.xpi",

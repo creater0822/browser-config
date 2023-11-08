@@ -1,0 +1,43 @@
+{
+  "blacklist": "*://*.aeefws.com/*\n*://*.en.uptodown.com/*\n*://*.gameskip.com/*\n*://*.hotdeals.com/*\n*://*.registerguard.com/*\n*://*.software.informer.com/*\n*://*.usfreecoupons.com/*\n*://*.isdown.app/*\n*://*.runescape.fandom.com/*\n*://*.freedownloadmanager.org/*\n*://*.gamepccrack.com/*\n*://*.softonic.com/*",
+  "blockWholeSite": false,
+  "skipBlockDialog": false,
+  "hideBlockLinks": false,
+  "hideControl": false,
+  "enablePathDepth": false,
+  "linkColor": "default",
+  "blockColor": "default",
+  "highlightColors": [
+    "#ddeeff"
+  ],
+  "dialogTheme": "dark",
+  "syncBlocklist": true,
+  "syncGeneral": false,
+  "syncAppearance": false,
+  "syncSubscriptions": false,
+  "syncInterval": 15,
+  "subscriptions": [
+    {
+      "name": "AliExpress Fake Sites",
+      "url": "https://raw.githubusercontent.com/franga2000/aliexpress-fake-sites/main/domains_uBlacklist.txt",
+      "enabled": true
+    },
+    {
+      "name": "Content Farm - Spam",
+      "url": "https://raw.githubusercontent.com/wdmpa/content-farm-list/main/uBlacklist/spam.txt",
+      "enabled": true
+    },
+    {
+      "name": "Stack Overflow Machine Translations",
+      "url": "https://raw.githubusercontent.com/arosh/ublacklist-stackoverflow-translation/master/uBlacklist.txt",
+      "enabled": true
+    },
+    {
+      "name": "GitHub Machine Translations",
+      "url": "https://raw.githubusercontent.com/arosh/ublacklist-github-translation/master/uBlacklist.txt",
+      "enabled": true
+    }
+  ],
+  "updateInterval": 1440,
+  "version": "8.3.5"
+}
