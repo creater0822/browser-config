@@ -379,6 +379,23 @@ lockPref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 lockPref("browser.xul.error_pages.expert_bad_cert", true);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// PLUGINS / MEDIA / WEBRTC
+// >>>>>>>>>>>>>>>>>>>>>
+//
+/* 7020: disable WebRTC (Web Real-Time Communication)
+ * [WHY] Firefox desktop uses mDNS hostname obfuscation and the private IP is never exposed until
+ * required in TRUSTED scenarios; i.e. after you grant device (microphone or camera) access
+ * [TEST] https://browserleaks.com/webrtc
+ * [1] https://groups.google.com/g/discuss-webrtc/c/6stQXi72BEU/m/2FwZd24UAQAJ
+ * [2] https://datatracker.ietf.org/doc/html/draft-ietf-mmusic-mdns-ice-candidates#section-3.1.1 ***/
+defaultPref("media.peerconnection.enabled", true);
+//
+// PREF: force WebRTC inside the proxy [FF70+]
+lockPref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
+// Force a single network interface for ICE candidates generation [FF42+]
+lockPref("media.peerconnection.ice.default_address_only", true);
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DOM (DOCUMENT OBJECT MODEL)
 // >>>>>>>>>>>>>>>>>>>>>
 //
@@ -645,9 +662,6 @@ lockPref("network.ssl_tokens_cache_capacity", 32768); // default=2048; more TLS 
 // [2] https://www.ghacks.net/2017/05/24/firefoxs-new-form-autofill-is-awesome
 lockPref("extensions.formautofill.addresses.enabled", false);
 lockPref("extensions.formautofill.creditCards.enabled", false);
-
-// PREF: force WebRTC inside the proxy [FF70+]
-lockPref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 
 // PREF: Firefox Translations [NIGHTLY]
 // Automated translation of web content is done locally in Firefox, so that
