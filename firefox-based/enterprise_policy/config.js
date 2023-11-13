@@ -291,9 +291,9 @@ lockPref("network.proxy.socks_remote_dns", true);
 // Disable skipping DoH when parental controls are enabled [FF70+]
 lockPref("network.dns.skipTRR-when-parental-control-enabled", false);
 //
-// In case using Mullvad VPN
-// defaultPref("network.trr.uri", "https://adblock.dns.mullvad.net");
-// defaultPref("network.trr.custom_uri", "https://adblock.dns.mullvad.net");
+// In case not using Mullvad VPN
+defaultPref("network.trr.uri", "https://adblock.dns.mullvad.net/dns-query");
+defaultPref("network.trr.custom_uri", "https://adblock.dns.mullvad.net/dns-query");
 //
 // Enable Encrypted client Hello
 defaultPref("network.dns.echconfig.enabled", true);
