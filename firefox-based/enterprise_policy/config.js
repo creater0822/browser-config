@@ -282,8 +282,22 @@ lockPref("network.predictor.enable-prefetch", false); // [FF48+] [DEFAULT: false
 // DNS / DoH / PROXY / SOCKS
 // >>>>>>>>>>>>>>>>>>>>>
 //
+/* 0702: set the proxy server to do any DNS lookups when using SOCKS
+ * e.g. in Tor, this stops your local DNS server from knowing your Tor destination
+ * as a remote Tor node will handle the DNS request
+ * [1] https://trac.torproject.org/projects/tor/wiki/doc/TorifyHOWTO/WebBrowsers ***/
+lockPref("network.proxy.socks_remote_dns", true);
+//
 // Disable skipping DoH when parental controls are enabled [FF70+]
 lockPref("network.dns.skipTRR-when-parental-control-enabled", false);
+//
+defaultPref("network.trr.uri", "https://adblock.dns.mullvad.net");
+defaultPref("network.trr.custom_uri", "https://adblock.dns.mullvad.net");
+//
+// Enable Encrypted client Hello
+defaultPref("network.dns.echconfig.enabled", true);
+defaultPref("network.dns.http3_echconfig.enabled", true);
+defaultPref("network.trr.mode", 2);     // First. Use TRR first, and only if the name resolve fails use the native resolver as a fallback.
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // LOCATION BAR / SEARCH BAR / SUGGESTIONS / HISTORY / FORMS
