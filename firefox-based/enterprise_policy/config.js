@@ -646,7 +646,7 @@ lockPref("extensions.formautofill.addresses.enabled", false);
 lockPref("extensions.formautofill.creditCards.enabled", false);
 
 // PREF: force WebRTC inside the proxy [FF70+]
-user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
+lockPref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 
 // PREF: Firefox Translations [NIGHTLY]
 // Automated translation of web content is done locally in Firefox, so that
