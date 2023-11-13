@@ -366,7 +366,10 @@ defaultPref("browser.sessionstore.privacy_level", 1);
 // HTTPS (SSL/TLS / OCSP / CERTS / HPKP)
 // >>>>>>>>>>>>>>>>>>>>>
 //
-// UI (User Interface)
+// HTTPS-first for normal and HTTPS-only for private browsing
+defaultPref("dom.security.https_first", true);
+defaultPref("dom.security.https_only_mode", false); // [FF76+]
+defaultPref("dom.security.https_only_mode_pbm", true); // [FF80+]
 //
 // Display warning on the padlock for "broken security"
 lockPref("security.ssl.treat_unsafe_negotiation_as_broken", true);
@@ -443,6 +446,33 @@ lockPref("privacy.history.custom", true);
 //
 // Enable Firefox to clear items on shutdown
 defaultPref("privacy.sanitize.sanitizeOnShutdown", false);
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// RFP (resistFingerprinting)
+// >>>>>>>>>>>>>>>>>>>>>
+//
+// Enable RFP on Private Mode if the original pref is false
+defaultPref("privacy.resistFingerprinting.pbmode", true); // [FF114+]
+// -------------------------------------
+// Set new window size rounding max values [FF55+]
+defaultPref("privacy.window.maxInnerWidth", 1600);
+defaultPref("privacy.window.maxInnerHeight", 900);
+// -------------------------------------
+// Disable mozAddonManager Web API [FF57+]
+defaultPref("privacy.resistFingerprinting.block_mozAddonManager", true);
+// -------------------------------------
+// Disable using system colors
+defaultPref("browser.display.use_system_colors", false); // [DEFAULT: false NON-WINDOWS]
+// -------------------------------------
+// Enforce non-native widget theme
+defaultPref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
+// -------------------------------------
+// Enforce links targeting new windows to open in a new tab instead
+// 1=most recent window or tab, 2=new window, 3=new tab
+defaultPref("browser.link.open_newwindow", 3); // [DEFAULT: 3]
+// -------------------------------------
+// Set all open window methods to abide by "browser.link.open_newwindow"
+defaultPref("browser.link.open_newwindow.restriction", 0);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DON'T TOUCH

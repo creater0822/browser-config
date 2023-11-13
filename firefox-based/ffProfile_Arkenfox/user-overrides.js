@@ -50,11 +50,6 @@ user_pref("browser.newtabpage.enabled", true);					// Re-enable Firefox home
 user_pref("privacy.sanitize.sanitizeOnShutdown", false);		// 2810: don't enable privacy sanitize
 user_pref("privacy.cpd.history", false);              			// 2820: untick history in Ctrl-Shift-Del dialog
 
-// Disable sites asking for permissions: Could be fingerprinted
-user_pref("geo.enabled", false);								// 7001: disable APIs
-user_pref("permissions.default.geo", 2);						// 7002: Block geo access
-user_pref("permissions.default.xr", 2);							// 7002: Block VR access
-
 // Arkenfox override: Fix website breakage
 user_pref("privacy.resistFingerprinting", false); 				// 4501: Disable ResistFingerPrinting
 user_pref("privacy.resistFingerprinting.letterboxing", false); 	// 4504 [pointless if not using RFP]
@@ -66,6 +61,11 @@ user_pref("media.eme.enabled", true); 							// 2022: Enable DRM-content
 
 user_pref("_user-overrides.js", "End of Arkenfox overrides.");
 /******************************** Additional privacy/security related preferences ********************************/
+// Disable sites asking for permissions: Could be fingerprinted
+user_pref("geo.enabled", false);								// 7001: disable APIs
+user_pref("permissions.default.geo", 2);						// 7002: Block geo access
+user_pref("permissions.default.xr", 2);							// 7002: Block VR access
+
 // PREF: Enable Encrypted client Hello
 user_pref("network.dns.echconfig.enabled", true);
 user_pref("network.dns.http3_echconfig.enabled", true);
