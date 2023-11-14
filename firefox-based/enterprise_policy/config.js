@@ -21,6 +21,7 @@ lockPref("browser.aboutConfig.showWarning", false);
 //
 // Disable default browser check
 lockPref("browser.shell.checkDefaultBrowser", false);
+lockPref("app.update.suppressPrompts", true); // Disable update notifications
 // -------------------------------------
 // Default UI prefs (may be optional)
 defaultPref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[\"_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action\",\"_f209234a-76f0-4735-9920-eb62507a54cd_-browser-action\",\"enhancerforyoutube_maximerf_addons_mozilla_org-browser-action\",\"treestyletab_piro_sakura_ne_jp-browser-action\",\"keepassxc-browser_keepassxc_org-browser-action\",\"_0981817c-71b3-4853-a801-481c90af2e8e_-browser-action\"],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"addon_darkreader_org-browser-action\",\"customizableui-special-spring1\",\"7esoorv3_alefvanoon_anonaddy_me-browser-action\",\"pagehacker-nico_nc-browser-action\",\"_6ac85730-7d0f-4de0-b3fa-21142dd85326_-browser-action\",\"developer-button\",\"urlbar-container\",\"downloads-button\",\"_ddc359d1-844a-42a7-9aa1-88a850a938a8_-browser-action\",\"_63d150c4-394c-4275-bc32-c464e76a891c_-browser-action\",\"_66d854c2-fd1b-4857-bd0a-7d220e4834da_-browser-action\",\"simple-translate_sienori-browser-action\",\"customizableui-special-spring2\",\"save-to-pocket-button\",\"ublock0_raymondhill_net-browser-action\",\"fxa-toolbar-menu-button\",\"jid1-y3wfe7td45awdw_jetpack-browser-action\",\"_9350bc42-47fb-4598-ae0f-825e3dd9ceba_-browser-action\",\"skipredirect_sblask-browser-action\",\"_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action\",\"smart-referer_meh_paranoid_pk-browser-action\",\"canvasblocker_kkapsner_de-browser-action\",\"unified-extensions-button\"],\"toolbar-menubar\":[\"menubar-items\"],\"TabsToolbar\":[\"firefox-view-button\",\"sidebar-button\",\"save-page-button\",\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\",\"_c607c8df-14a7-4f28-894f-29e8722976af_-browser-action\",\"_testpilot-containers-browser-action\",\"profile-switcher-ff_nd_ax-browser-action\"],\"PersonalToolbar\":[\"import-button\",\"personal-bookmarks\",\"_2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c_-browser-action\",\"zoom-controls\",\"_d07ccf11-c0cd-4938-a265-2a4d6ad01189_-browser-action\"]},\"seen\":[\"developer-button\",\"profiler-button\",\"jid1-y3wfe7td45awdw_jetpack-browser-action\",\"_63d150c4-394c-4275-bc32-c464e76a891c_-browser-action\",\"_9350bc42-47fb-4598-ae0f-825e3dd9ceba_-browser-action\",\"_f209234a-76f0-4735-9920-eb62507a54cd_-browser-action\",\"7esoorv3_alefvanoon_anonaddy_me-browser-action\",\"_testpilot-containers-browser-action\",\"enhancerforyoutube_maximerf_addons_mozilla_org-browser-action\",\"addon_darkreader_org-browser-action\",\"canvasblocker_kkapsner_de-browser-action\",\"treestyletab_piro_sakura_ne_jp-browser-action\",\"pagehacker-nico_nc-browser-action\",\"keepassxc-browser_keepassxc_org-browser-action\",\"smart-referer_meh_paranoid_pk-browser-action\",\"_2e5ff8c8-32fe-46d0-9fc8-6b8986621f3c_-browser-action\",\"_66d854c2-fd1b-4857-bd0a-7d220e4834da_-browser-action\",\"_6ac85730-7d0f-4de0-b3fa-21142dd85326_-browser-action\",\"_a6c4a591-f1b2-4f03-b3ff-767e5bedf4e7_-browser-action\",\"_aecec67f-0d10-4fa7-b7c7-609a2db280cf_-browser-action\",\"_ddc359d1-844a-42a7-9aa1-88a850a938a8_-browser-action\",\"_c607c8df-14a7-4f28-894f-29e8722976af_-browser-action\",\"_d07ccf11-c0cd-4938-a265-2a4d6ad01189_-browser-action\",\"ublock0_raymondhill_net-browser-action\",\"_0981817c-71b3-4853-a801-481c90af2e8e_-browser-action\",\"simple-translate_sienori-browser-action\",\"profile-switcher-ff_nd_ax-browser-action\",\"skipredirect_sblask-browser-action\"],\"dirtyAreaCache\":[\"unified-extensions-area\",\"nav-bar\",\"TabsToolbar\",\"PersonalToolbar\",\"toolbar-menubar\"],\"currentVersion\":19,\"newElementCount\":8}");
@@ -35,6 +36,8 @@ lockPref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // 
 lockPref("browser.newtabpage.activity-stream.default.sites", "");
 lockPref("browser.topsites.contile.enabled", false);
 lockPref("browser.topsites.useRemoteSetting", false);
+//
+defaultPref("network.manage-offline-status", false);	// Don't monitor OS online/offline connection state
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // GEOLOCATION / LANGUAGE / LOCALE (may be optional)
@@ -395,6 +398,10 @@ lockPref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 // Force a single network interface for ICE candidates generation [FF42+]
 lockPref("media.peerconnection.ice.default_address_only", true);
 //
+// PREF: Autoplay
+defaultPref("media.autoplay.default", 0);
+defaultPref("media.autoplay.enabled", true);
+//
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DOM (DOCUMENT OBJECT MODEL)
 // >>>>>>>>>>>>>>>>>>>>>
@@ -412,6 +419,16 @@ lockPref("dom.disable_window_open_feature.scrollbars", true);			// Prevents the 
 lockPref("dom.disable_window_open_feature.status", true);				  // Prevents the status bar from being hidden.
 lockPref("dom.disable_window_open_feature.titlebar", true);				// Prevents the title bar from being hidden.
 lockPref("dom.disable_window_open_feature.toolbar", true);				// Prevents the navigation toolbar from being hidden.
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// EXTENSIONS
+// >>>>>>>>>>>>>>>>>>>>>
+//
+// PREF: Startup extension Settings
+defaultPref("extensions.autoDisableScopes", 14);				// Install local extensions
+defaultPref("extensions.FirefoxMulti-AccountContainers@mozilla.whiteList", "");
+defaultPref("extensions.TemporaryContainers@stoically.whiteList", "");
+defaultPref("extensions.getAddons.cache.enabled", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // MISCELLANEOUS
@@ -609,7 +626,9 @@ lockPref("browser.messaging-system.whatsNewPanel.enabled", false);
 lockPref("browser.preferences.moreFromMozilla", false);           // Hide "More from Mozilla" in Settings
 lockPref("browser.selfsupport.url", "");
 lockPref("browser.startup.upgradeDialog.enabled", false);				  // Disable moments page when updated
+lockPref("dom.mozTCPSocket.enabled", false);						          // Disable raw TCP socket support (mozTCPSocket), useless unless for sniffing/hacking
 lockPref("extensions.webcompat-reporter.enabled", false); 				// 6011: enforce disabling of Web Compatibility Reporter [FF56+]
+lockPref("network.negotiate-auth.allow-insecure-ntlm-v1", false);	// Disallow NTLMv1 unless through HTTPS
 lockPref("permissions.delegation.enabled", false); 						    // Any prompt for permissions will show the correct 3rd party origin
 lockPref("privacy.partition.bloburl_per_partition_key", true);    // [FF118+] Separates API caches per website
 lockPref("privacy.usercontext.about_newtab_segregation.enabled", true);
@@ -673,6 +692,11 @@ lockPref("extensions.formautofill.creditCards.enabled", false);
 defaultPref("browser.translations.enable", true);
     //defaultPref("browser.translations.autoTranslate", true);
 //
+// PREF: Smooth scrolling recommended for 60hz+ displays
+defaultPref("apz.overscroll.enabled", true);                    // not DEFAULT on Linux
+defaultPref("general.smoothScroll", true); 					            // DEFAULT
+defaultPref("mousewheel.default.delta_multiplier_y", 275);      // 250-400
+//
 pref("_config.js", "End of lockPref section.");
 /******************************** System-default settings ********************************/
 // PREF: Longer till script timeout
@@ -692,18 +716,6 @@ pref("full-screen-api.warning.timeout", 0);
 // Prevent themes overriding settings pages into Light theme
 pref("layout.css.prefers-color-scheme.content-override", 0);
 
-pref("_config.js", "End of reset-on-restart section.");
-/******************************** User-overwritable settings ********************************/
-// PREF: Startup extension Settings
-defaultPref("extensions.autoDisableScopes", 14);				// Install local extensions
-defaultPref("extensions.FirefoxMulti-AccountContainers@mozilla.whiteList", "");
-defaultPref("extensions.TemporaryContainers@stoically.whiteList", "");
-defaultPref("extensions.getAddons.cache.enabled", false);
-
-// PREF: Autoplay
-defaultPref("media.autoplay.default", 0);
-defaultPref("media.autoplay.enabled", true);
-
 // PREF: Basic privacy settings
 defaultPref("privacy.donottrackheader.value", 1);
 defaultPref("privacy.query_stripping", true);
@@ -711,16 +723,12 @@ defaultPref("privacy.trackingprotection.pbmode.enabled", true);
 defaultPref("webgl.renderer-string-override", " ");
 defaultPref("webgl.vendor-string-override", " ");
 
-// PREF: Smooth scrolling recommended for 60hz+ displays
-defaultPref("apz.overscroll.enabled", true);                    // not DEFAULT on Linux
-defaultPref("general.smoothScroll", true); 					            // DEFAULT
-defaultPref("mousewheel.default.delta_multiplier_y", 275);      // 250-400
-
-pref("_config.js", "End of overwritable section.");
-/******************************** UI Section ********************************/
 lockPref("browser.compactmode.show", true);                     // Enable compact mode to be used
 defaultPref("browser.download.useDownloadDir", false);			    // Always ask where to save the download
-defaultPref("toolkit.legacyUserProfileCustomizations.stylesheets", true); // Enable Firefox to use userChome, userContent, etc.
+
+// Enable Firefox to use userChomeCSS
+defaultPref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+defaultPref("svg.context-properties.content.enabled", true);
 
 // PREF: Bookmark settings
 defaultPref("browser.tabs.loadBookmarksInTabs", true);			    // force bookmarks to open in a new tab, not the current tab
@@ -730,6 +738,7 @@ defaultPref("browser.toolbars.bookmarks.visibility", "always");
 // PREF: restore "View image info" on right-click
 lockPref("browser.menu.showViewImageInfo", true);
 
+pref("_config.js", "End of system-default Firefox settings.");
 /******************************** Firefox userChromeJS: ********************************/
 lockPref('xpinstall.signatures.required', false);
 lockPref('extensions.install_origins.enabled', false);
@@ -754,4 +763,4 @@ try {
 } catch (ex) {};
 
 /******************************** End validation ********************************/
-pref("_config.js", "End of system-default Firefox settings.");
+pref("_config.js", "End of config.js.");

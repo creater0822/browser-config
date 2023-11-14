@@ -1,40 +1,4 @@
 /******************************** Cyfire's Arkenfox Overrides ********************************/
-/** 
-	# Settings in this file either involve Arkenfox overrides, or advanced (maybe feature-breaking) preferences
-	
-	> This Arkenfox user override assumes the usage of Firefox Enterprise policy and volatile prefs.js
-	## Locked settings:
-	- Enabled compact UI mode
-	- Disabled browser tooltips
-	- Disabled checking default browser
-	- Disabled Mozilla's VPN
-	- Disabled Mozilla recommendations in Settings // Addons page
-	- Disabled sensors that should never be needed (ambient light, motion, orientation, proximity)
-	- Disabled telemetry
-	- Disabled studies
-	- Disabled pocket
-	- Disabled Firefox Hello metrics collection
-	- Disabled GreaseMonkey telemetry (in case anyone installs it)
-	- Disabled JavaScript from tampering open windows
-	- Disabled SB checks for downloads (remote)
-	- Disabled unnecessary animations
-	- Disabled full screen delay and notice
-	- Disabled PDFJS scripting
-	- Defaults to compact UI by default
-	
-	## Default overwritable settings
-	- Disabled preSkeletonUI on startup
-	- Spell checker in every textbox
-	- Don't close Firefox with the last tab
-	- Dedicated searchbox opens in new tab
-	- Don't translate English and Dutch
-	- Smooth scrolling for 60Hz+ displays
-	- PDFJS enabled
-	- Enable useful URL-bar tools (calculator & unit conversion)
-	- Bookmark settings
-	- Built-in Firefox translation settings
-**/
-
 // Arkenfox override: URL bar search & enable useful engines
 user_pref("keyword.enabled", true);                   			// 0801: enabled urlbar search
 user_pref("browser.search.suggest.enabled", true);    			// 0804: live search suggestions
@@ -57,37 +21,11 @@ user_pref("webgl.disabled", false); 							// 4520 [mostly pointless if not usin
 user_pref("network.http.referer.XOriginPolicy", 0);				// 1601: cross-origin referer, use Smart Referer extension in Strict mode
 user_pref("security.cert_pinning.enforcement_level", 1);		// 1223: Avoid MOZILLA_PKIX_ERROR_KEY_PINNING_FAILURE
 user_pref("media.eme.enabled", true); 							// 2022: Enable DRM-content
- // user_pref("media.gmp-widevinecdm.enabled", true); // 2021 default-inactive in user.js
+
+user_pref("extensions.autoDisableScopes", 14);					// Install local extensions
 
 user_pref("_user-overrides.js", "End of Arkenfox overrides.");
-/******************************** Additional privacy/security related preferences ********************************/
-// Disable sites asking for permissions: Could be fingerprinted
-user_pref("geo.enabled", false);								// 7001: disable APIs
-user_pref("permissions.default.geo", 2);						// 7002: Block geo access
-user_pref("permissions.default.xr", 2);							// 7002: Block VR access
-
-// PREF: Enable Encrypted client Hello
-user_pref("network.dns.echconfig.enabled", true);
-user_pref("network.dns.http3_echconfig.enabled", true);
-user_pref("network.trr.mode", 2); 								// First. Use TRR first, and only if the name resolve fails use the native resolver as a fallback.
-
-// PREF: Disable API's
-user_pref("dom.battery.enabled", false);
-user_pref("dom.gamepad.enabled", false);
-user_pref("dom.vr.enabled",	false);
-
-// PREF: Other stuff
-user_pref("network.file.disable_unc_paths", false);   				// 0703: enable UNC paths
-user_pref("app.update.suppressPrompts", true);						// Disable update notifications
-user_pref("dom.mozTCPSocket.enabled", false);						// PREF: Disable raw TCP socket support (mozTCPSocket)
-user_pref("network.manage-offline-status", false);					// Don't monitor OS online/offline connection state
-user_pref("network.negotiate-auth.allow-insecure-ntlm-v1", false);	// Disallow NTLMv1 unless through HTTPS
-user_pref("extensions.autoDisableScopes", 14);						// Install local extensions
-
-user_pref("_user-overrides.js", "End of additional privacy/security related preferences.");
-/******************************** Custom UserChromeCSS section ********************************/
-user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true); // Enable Firefox to use userChome, userContent, etc.
-user_pref("svg.context-properties.content.enabled", true);
+/******************************** Additional UserChromeCSS section ********************************/
 user_pref("layout.css.color-mix.enabled", true);
 user_pref("browser.tabs.delayHidingAudioPlayingIconMS", 0);
 user_pref("layout.css.backdrop-filter.enabled", true);
