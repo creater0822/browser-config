@@ -364,7 +364,8 @@ defaultPref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 // Enable useful search bar features
 defaultPref("browser.urlbar.suggest.calculator", true);
 defaultPref("browser.urlbar.unitConversion.enabled", true);
-defaultPref("browser.search.suggest.enabled", true);    		    // 0804 live search suggestions
+defaultPref("browser.search.suggest.enabled", true);  // 0804 live search suggestions
+defaultPref("browser.urlbar.suggest.searches", true);	// 0804: Includes search engine suggestion
 defaultPref("browser.urlbar.groupLabels.enabled", true);
 defaultPref("browser.urlbar.trimURLs", false);
 //
