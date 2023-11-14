@@ -158,7 +158,6 @@ user_pref("browser.contentblocking.category", "strict");
    // user_pref("privacy.antitracking.enableWebcompat", false);
 
 /*** [SECTION 6000]: DON'T TOUCH ***/
-user_pref("_user.js.parrot", "6000 syntax error: the parrot's 'istory!");
 /* 6001: enforce Firefox blocklist
  * [WHY] It includes updates for "revoked certificates"
  * [1] https://blog.mozilla.org/security/2015/03/03/revoking-intermediate-certificates-introducing-onecrl/ ***/
@@ -283,5 +282,8 @@ user_pref("security.ssl3.dhe_dss_aes_256_sha", false);
 user_pref("security.ssl3.dhe_dss_camellia_128_sha", false);
 user_pref("security.ssl3.dhe_dss_camellia_256_sha", false);
 
+// Additional anti-telemetry overrides
+user_pref("toolkit.telemetry.cachedClientID", "");
+user_pref("toolkit.telemetry.pioneer-new-studies-available", false);
 /******************************** End validation ********************************/
 user_pref("_user.js", "End of ffProfile settings.");
