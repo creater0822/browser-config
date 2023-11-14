@@ -1,8 +1,11 @@
 {
+    "__COMMENT__ More Information": "https://mozilla.github.io/policy-templates/",
     "policies": {
         "DisplayMenuBar": true,
         "OverrideFirstRunPage": "",
         "OverridePostUpdatePage": "",
+        "DisableSystemAddonUpdate": true,
+        "DisableProfileImport": false,
         "DisableFirefoxAccounts": true,
         "DisableFirefoxStudies": true,
         "DisablePocket": true,
@@ -32,13 +35,27 @@
                 "installation_mode": "force_installed",
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi"
             },
+            "@ublacklist": {
+                "installation_mode": "force_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublacklist/latest.xpi",
+                "default_area": "navbar"
+            },
+            "7esoorv3@alefvanoon.anonaddy.me": {
+                "installation_mode": "force_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/libredirect/latest.xpi",
+                "default_area": "navbar"
+            },
             "{a7589411-c5f6-41cf-8bdc-f66527d9d930}": {
                 "installation_mode": "force_installed",
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/matte-black-red/latest.xpi"
             },
-            "@ublacklist": {
-                "installation_mode": "force_installed",
-                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublacklist/latest.xpi",
+            "idcac-pub@guus.ninja": {
+                "installation_mode": "normal_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/istilldontcareaboutcookies/latest.xpi"
+            },
+            "CanvasBlocker@kkapsner.de": {
+                "installation_mode": "normal_installed",
+                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/canvasblocker/latest.xpi",
                 "default_area": "navbar"
             },
             "simple-translate@sienori": {
@@ -98,10 +115,6 @@
                 "installation_mode": "normal_installed",
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/colorzilla/latest.xpi"
             },
-            "{63d150c4-394c-4275-bc32-c464e76a891c}": {
-                "installation_mode": "normal_installed",
-                "install_url": "https://addons.mozilla.org/firefox/downloads/latest/audio-equalizer-wext/latest.xpi"
-            },
             "{DDC359D1-844A-42a7-9AA1-88A850A938A8}": {
                 "installation_mode": "normal_installed",
                 "install_url": "https://addons.mozilla.org/firefox/downloads/latest/downthemall/latest.xpi"
@@ -138,7 +151,6 @@
         "NoDefaultBookmarks": true,
         "Extensions": {
             "Uninstall": [
-                "google@search.mozilla.org",
                 "bing@search.mozilla.org",
                 "amazondotcom@search.mozilla.org",
                 "ebay@search.mozilla.org",
@@ -155,20 +167,66 @@
         },
         "SearchEngines": {
             "PreventInstalls": false,
-            "Remove": ["Bing", "Amazon.com", "Amazon.nl", "DuckDuckGo", "eBay"],
-            "Add": [{
+            "Remove": ["Bing", "Amazon.com", "Amazon.nl", "DuckDuckGo", "eBay", "Twitter"],
+            "Default": "Startpage",
+            "Add": [
+                {
+                    "Name": "Startpage",
+                    "URLTemplate": "https://www.startpage.com/sp/search?query={searchTerms}&cat=web&pl=opensearch&language=english",
+                    "Method": "POST",
+                    "IconURL": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAB60lEQVQ4jZWTPWhTARDHf5ePlzQ2oDXVKCJVKFIHEdGAFmMRg9QPikXRCkoHnQQXF6cguDgpOImDQ4QuNkHsKCKCYDFLKYKFYq1N0EATLe2SvJeXc3i8NC+hWA8O7v+/D+6DE9O0s6CjIvyXqAoi5MQ069qerCosV8CyoDcGRlA3KAKB9uTZr8LklFCuODgUgqETwoWU4vd7C4mAmKbdZL/MwbOMoArxHRDpgsUC2A1IHIbxq52dBFrBqylBVbh+qcFgwuF+luDJcyE/A8njsH+vt4DPNZYrUK7Anl3aTAbYHYfh08r2bbBU7NyDWJatqlCtQfk39Gx1Wm+ds1qtUa3V6AqHMQyjvQNFRAkGbLK5DA8fPWZ1bQ0Rh1dVbt9Jc+zkFT58zOPGu9rcQSDgY25+gXfvP7HwvcC9u+NEu7fw4mWO6fwMsVgPycGjtF9NLKveXG25ssLNW/eZ/7bYMeuB/n1kJ54SCgU9vD+dTj9wQSQSZnQkRTTaTUOV+M5ezp89RaFYYqlY4s/KKkPJhLcL07T1Xzr9eVb7Dw1r30BKJ1+/9fg2VcA0bc1MvNG+gTN68MhF/VH41eR9bFKuXT7HjbERDCOIXbfXl2iadYWNX1HEeZp1Udx4EcUH5NzbOk7vnVux46fVzv0FyTAep7bqlzwAAAAASUVORK5CYII=",
+                    "Alias": "@startpage",
+                    "Description": "Startpage Search",
+                    "SuggestURLTemplate": "https://www.startpage.com/sp/search?query={searchTerms}&cat=web&pl=opensearch&language=english"
+                },
+                {
+                    "Name": "SearXNG NicFab",
+                    "URLTemplate": "http://searxng.nicfab.eu/searxng/autocompleter?q={searchTerms}",
+                    "Method": "POST",
+                    "IconURL": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5Mm1tIiBoZWlnaHQ9IjkybW0iIHZpZXdCb3g9IjAgMCA5MiA5MiI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQwLjkyMSAtMTcuNDE3KSI+PGNpcmNsZSBjeD0iNzUuOTIxIiBjeT0iNTMuOTAzIiByPSIzMCIgc3R5bGU9ImZpbGw6bm9uZTtmaWxsLW9wYWNpdHk6MTtzdHJva2U6IzMwNTBmZjtzdHJva2Utd2lkdGg6MTA7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIvPjxwYXRoIGQ9Ik02Ny41MTUgMzcuOTE1YTE4IDE4IDAgMCAxIDIxLjA1MSAzLjMxMyAxOCAxOCAwIDAgMSAzLjEzOCAyMS4wNzgiIHN0eWxlPSJmaWxsOm5vbmU7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOiMzMDUwZmY7c3Ryb2tlLXdpZHRoOjU7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIvPjxyZWN0IHdpZHRoPSIxOC44NDYiIGhlaWdodD0iMzkuOTYzIiB4PSIzLjcwNiIgeT0iMTIyLjA5IiByeT0iMCIgc3R5bGU9Im9wYWNpdHk6MTtmaWxsOiMzMDUwZmY7ZmlsbC1vcGFjaXR5OjE7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjg7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIgdHJhbnNmb3JtPSJyb3RhdGUoLTQ2LjIzNSkiLz48L2c+PC9zdmc+",
+                    "Alias": "sx",
+                    "Description": "SearXNG is a metasearch engine that respects your privacy.",
+                    "SuggestURLTemplate": "http://searxng.nicfab.eu/searxng/autocompleter?q={searchTerms}"
+                },
+                {
+                    "Name": "Google",
+                    "URLTemplate": "https://google.com/search?q={searchTerms}",
+                    "Method": "POST",
+                    "IconURL": "https://www.google.com/favicon.ico",
+                    "Alias": "@google",
+                    "Description": "Privacy disrespecting search engine.",
+                    "SuggestURLTemplate": "https://google.com/search?q={searchTerms}"
+                },
+                {
                     "Name": "Youtube",
                     "URLTemplate": "https://www.youtube.com/results?search_query={searchTerms}",
                     "Method": "POST",
                     "IconURL": "https://www.youtube.com/favicon.ico",
-                    "Alias": "@yt",
+                    "Alias": "yt",
                     "Description": "Search for videos on YouTube",
                     "SuggestURLTemplate": "https://www.youtube.com/results?search_query={searchTerms}"
+                },
+                {
+                    "Name": "Chocolatey",
+                    "URLTemplate": "https://community.chocolatey.org/packages?q={searchTerms}",
+                    "Method": "POST",
+                    "IconURL": "data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAzZZtAI6JjQDarX4A7MOWABtUogDms3wABEiVAB5SlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZBERERERZgAEZmZmZmZgAGRmZmZmZmYAZGZnZmZmYAAEZnd4ZmYAAGRndmdnNgAAZGd2ZmZmAAAEZnZnZ2YAAGRmZ3dmZwAAZGZmZmZnAAAEZmZmd3cAAGREJVVVVQAAAAAAAAAAAAAAAAAAAAAAD//wAA//8AAIABAADAAwAAgAEAAIADAADABwAAgAcAAIAHAADABwAAgAcAAIAHAADABwAAgAcAAP//AAD//wAA",
+                    "Alias": "choco",
+                    "Description": "Search Chocolatey packages",
+                    "SuggestURLTemplate": "https://community.chocolatey.org/packages?q={searchTerms}"
+                },
+                {
+                    "Name": "RuneScape Wiki (en)",
+                    "URLTemplate": "https://runescape.wiki/w/Special:Search?search={searchTerms}",
+                    "Method": "POST",
+                    "IconURL": "data:image/vnd.microsoft.icon;base64,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NP+YcTT/mXM3/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mXI05ZlyNPmYcTT/mHE0/5hxNP+YcTT/mHE0/+ri1v//////0sGm/5hxNP/x7OP//////8y5m/+YcTT/qopY///////x7OT/mHE0/+HVxP//////u6F5/6SCTf/6+ff/9PDq/6qLWf/49fH//////6SBS/+YcTT/mHE0/5hxNP+YcTT4mHE0/5hxNP+YcTT/mHE0/5hxNP+eekH//v39///////p4tX/oX5H////////////597Q/5hxNP+qilj///////Hs5P+YcTT/4dXE//////+7oXn/4NTC///////azLf/mHE0//j18f//////pIFL/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/7iedP////////////38+/+9pH7////////////9/Pv/nHc9/6qKWP//////8ezk/5hxNP/h1cT//////9vNuP//////9vPu/6B8Q/+YcTT/+PXx//////+kgUv/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/08Kp///////q4tb//////+rj1///////6+PX//////+1mm7/qopY///////x7OT/mHE0/+HVxP/////////////////Cqob/mHE0/5hxNP/49fH//////6SBS/+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP/u6N7//////8Gphf/8/Pv////////////AqYT//////9C+o/+qilj///////Hs5P+YcTT/4dXE///////d0Lz//////+bdz/+YcjX/mHE0//j18f//////pIFL/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/on5H////////////qIdT/+ri1v//////8u3m/6KASf//////6+PX/6qKWP//////8ezk/5hxNP/h1cT//////7uhef/h1cT//////8axj/+YcTT/+PXx//////+kgUv/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+ukGD/6uPX//Tv6f+YcTT/0L6j//j18f/YybL/mHE0//Dq4v/39O//rY9e//j18f/r5Nj/mHE0/9zPuv/49fH/uJ50/6SCTf/18ev/9PDq/6WDTv/x7OP/+PXx/6OASv+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+cdjv/mnM3/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5p0OP+kgUv/nXg+/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/t5tx////////////9/Tw/5hxNP+YcTT/mHE0/+DUwv/8/Pv/7ufd/9LBpv+YcTT/sZRm/9fIsf/08ev//v7+////////////8+/o/8axj/+adDj/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+3m3H////////////39PD/mHE0/5hxNP+5nnX/////////////////t5xy/5hxNP/i18b//////////////////////////////////////9TFrP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/7ebcf////////////f08P+YcTT/nXg+//Pv6P///////////9zPuv+YcTT/mHE0/9C+o///////7uje/9bHr//GsY//08Op//79/f///////////6aFUf+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/t5tx////////////9/Tw/5hxNP/RwKX////////////39O//oH1F/5hxNP+YcTT/r5Bh/7GUZv+YcTT/mHE0/5hxNP+YcTT/5dvM////////////u6J6/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+3m3H////////////7+ff/zbud//39/P///////////72kff+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/7KVZ//7+vj///////////+7onr/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/7ebcf/////////////////////////////////9/Pv/s5dq/5hxNP+YcTT/mHE0/5hxNP+YcTT/mnM3/7yje//p4NT/////////////////+/n3/6OBS/+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/t5tx/////////////f38/+7o3//8+/n////////////9/fz/wquH/5hxNP+YcTT/mHE0/6+QYf/w6+P///////////////////////v59/+8o3v/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+3m3H////////////18uz/mHE0/5x3Pf/MuZz////////////08ev/mHE0/5hxNP+kgkz/+vj1//////////////////z7+f/XyLH/p4ZS/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/7ebcf////////////Xy7P+YcTT/mHE0/5x3Pf/7+vj///////////+qilj/mHE0/8izk/////////////v6+P/Kt5j/oHxE/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/t5tx////////////9fLs/5hxNP+YcTT/qYhW/////////////////62OXv+YcTT/0cCl////////////1MSr/5hxNP+YcTT/mHE0/5x3PP+if0j/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+3m3H////////////49vP/u6F5/8y4mv/v6eD////////////7+vj/m3U6/5hxNP++poD////////////x7OT/wKiD/7+ngf/Twqn/+PXx/8q2l/+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/7ebcf///////////////////////////////////////////8Gphf+YcTT/mHE0/514P//w6uH/////////////////////////////////3dC8/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5lyNPmYcTT/mHE0/5hxNP+YcTT/t5tx////////////////////////////+vj2/+bdz/+1mm7/mHE0/5hxNP+YcTT/mHE0/6WDT//f08D///////////////////////Hs5P/Eroz/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT4mXI05ZhxNP+YcTT/mHE0/5hxNP+bdTr/o4BK/6OASv+jgEr/o4BK/597Q/+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+eeUD/rY1d/6yMW/+hfUb/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5lyNOWYcjWzmHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHI1s5p0NUSZcTT+mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5lxNP6adDVEAAAAAJhxNXyZcTT+mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+ZcTT+mHE1fAAAAAAAAAAAAAAAAJp0NUSYcjWzmXI05ZhxNPiYcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNP+YcTT/mHE0/5hxNPiZcjTlmHI1s5p0NUQAAAAAAAAAAMAAAAOAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAHAAAAD",
+                    "Alias": "rswiki",
+                    "Description": "RuneScape 3 Wiki (EN)",
+                    "SuggestURLTemplate": "https://runescape.wiki/w/Special:Search?search={searchTerms}"
                 }
             ]
         },
-        "policies": {
-            "Cookies": {
+        "Cookies": {
             "Allow": [
                 "https://codeberg.org/",
                 "https://discord.com/",
@@ -191,7 +249,6 @@
             ],
             "Block": ["https://facebook.com/","https://instagram.com/","https://twitter.com/","https://x.com/"],
             "RejectTracker": true
-            }
         },
         "EnableTrackingProtection": {
             "Cryptomining": true
@@ -202,6 +259,10 @@
             "Pocket": false,
             "SponsoredPocket": false,
             "Snippets": false
+        },
+        "SupportMenu": {
+            "Title": "Creater0822 browser-config",
+            "URL": "https://github.com/creater0822/browser-config/issues"
         }
     }
 }

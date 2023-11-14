@@ -1,6 +1,6 @@
 // skip 1st line
 // **********************************************************************************
-// Autoconfig | Firefox desktop
+// Autoconfig | Firefox desktop & LibreWolf
 // **********************************************************************************
 //
 // Author    : Cyfire    : 
@@ -28,14 +28,29 @@ defaultPref("browser.uiCustomization.state", "{\"placements\":{\"widget-overflow
 defaultPref("browser.uidensity", 1); 							              // Defaults to compact UI
 defaultPref("browser.tabs.closeWindowWithLastTab", false);		  // Don't close the window with the last tab
 // -------------------------------------
+// Firefox Home settings
+defaultPref("browser.startup.page", 1);	// Start with the web page(s) defined as the home page(s)
+defaultPref("browser.startup.homepage", "about:home"); // Set home page
+defaultPref("browser.newtabpage.enabled", true); // Re-enable Firefox home
 // Disable sponsored content on Firefox Home (Activity Stream)
 lockPref("browser.newtabpage.activity-stream.showSponsored", false); // [FF58+] Pocket > Sponsored Stories
 lockPref("browser.newtabpage.activity-stream.showSponsoredTopSites", false); // [FF83+] Sponsored shortcuts
+//
 // -------------------------------------
 // Clear default topsites
 lockPref("browser.newtabpage.activity-stream.default.sites", "");
 lockPref("browser.topsites.contile.enabled", false);
 lockPref("browser.topsites.useRemoteSetting", false);
+//
+// -------------------------------------
+// DOWNLOADS
+lockPref("browser.download.autohideButton", false);     // do not hide download button automatically
+defaultPref("browser.download.useDownloadDir", false);  // Always ask where to save the download
+defaultPref("browser.download.alwaysOpenPanel", false); // do not expand toolbar menu for every download, we already have enough interaction
+defaultPref("browser.download.manager.addToRecentDocs", false);
+/* 2654: enable user interaction for security by always asking how to handle new mimetypes [FF101+]
+ * [SETTING] General>Files and Applications>What should Firefox do with other files ***/
+defaultPref("browser.download.always_ask_before_handling_new_types", true);
 //
 defaultPref("network.manage-offline-status", false);	// Don't monitor OS online/offline connection state
 //
@@ -220,6 +235,12 @@ lockPref("browser.promo.focus.enabled", false);
 // Block unwanted connections
 lockPref("app.feedback.baseURL", "");
 lockPref("app.support.baseURL", "");
+lockPref("browser.search.searchEnginesURL", "https://librewolf.net/docs/faq/#how-do-i-add-a-search-engine");
+lockPref("browser.geolocation.warning.infoURL", "https://librewolf.net/docs/faq/#how-do-i-enable-location-aware-browsing");
+defaultPref("app.releaseNotesURL", "https://gitlab.com/librewolf-community/browser");
+defaultPref("app.releaseNotesURL.aboutDialog", "https://gitlab.com/librewolf-community/browser");
+defaultPref("app.update.url.details", "https://gitlab.com/librewolf-community/browser");
+defaultPref("app.update.url.manual", "https://gitlab.com/librewolf-community/browser");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // SAFE BROWSING (SB)
@@ -290,6 +311,12 @@ lockPref("network.predictor.enable-prefetch", false); // [FF48+] [DEFAULT: false
  * as a remote Tor node will handle the DNS request
  * [1] https://trac.torproject.org/projects/tor/wiki/doc/TorifyHOWTO/WebBrowsers ***/
 lockPref("network.proxy.socks_remote_dns", true);
+// -------------------------------------
+// Disable using UNC (Uniform Naming Convention) paths [FF61+]
+lockPref("network.file.disable_unc_paths", true); // [HIDDEN PREF]
+// -------------------------------------
+// Disable GIO as a potential proxy bypass vector
+lockPref("network.gio.supported-protocols", ""); // [HIDDEN PREF] [DEFAULT: "" FF118+]
 //
 // Disable skipping DoH when parental controls are enabled [FF70+]
 lockPref("network.dns.skipTRR-when-parental-control-enabled", false);
@@ -361,6 +388,8 @@ lockPref("browser.urlbar.update2.engineAliasRefresh", true); // HIDDEN
 // Disable media cache from writing to disk in Private Browsing
 lockPref("browser.privatebrowsing.forceMediaMemoryCache", true); // [FF75+]
 defaultPref("media.memory_cache_max_size", 65536);
+defaultPref("browser.shell.shortcutFavicons", true); // favicons in profile folder
+lockPref("browser.helperApps.deleteTempFileOnExit", true); // delete temporary files opened with external apps
 // -------------------------------------
 // Disable storing extra session data [SETUP-CHROME]
 // 0=everywhere, 1=unencrypted sites, 2=nowhere
@@ -374,12 +403,22 @@ defaultPref("browser.sessionstore.privacy_level", 1);
 defaultPref("dom.security.https_first", true);
 defaultPref("dom.security.https_only_mode", false); // [FF76+]
 defaultPref("dom.security.https_only_mode_pbm", true); // [FF80+]
+// 1 = Don't allow cross-origin sub-resources to open HTTP authentication credentials dialogs
+defaultPref("network.auth.subresource-http-auth-allow", 1);
 //
 // Display warning on the padlock for "broken security"
 lockPref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 // -------------------------------------
 // Display advanced information on Insecure Connection warning pages
 lockPref("browser.xul.error_pages.expert_bad_cert", true);
+//
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// CONTAINERS
+// >>>>>>>>>>>>>>>>>>>>>
+//
+// Enable Container Tabs and its UI setting [FF50+]
+defaultPref("privacy.userContext.enabled", true);
+defaultPref("privacy.userContext.ui.enabled", true);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // PLUGINS / MEDIA / WEBRTC
@@ -398,9 +437,15 @@ lockPref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 // Force a single network interface for ICE candidates generation [FF42+]
 lockPref("media.peerconnection.ice.default_address_only", true);
 //
-// PREF: Autoplay
-defaultPref("media.autoplay.default", 0);
+/** [SECTION] AUTOPLAY
+ * block autoplay unless element is right-clicked. this means background videos, videos in a different tab,
+ * or media opened while other media is played will not start automatically.
+ * thumbnails will not autoplay unless hovered. exceptions can be set from the UI.
+ */
+defaultPref("media.autoplay.default", 5);
 defaultPref("media.autoplay.enabled", true);
+//
+defaultPref("media.eme.enabled", true); // 2022: Enable DRM-content
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DOM (DOCUMENT OBJECT MODEL)
@@ -424,8 +469,14 @@ lockPref("dom.disable_window_open_feature.toolbar", true);				// Prevents the na
 // EXTENSIONS
 // >>>>>>>>>>>>>>>>>>>>>
 //
+// Disable extensions suggestions
+lockPref("extensions.webservice.discoverURL", "");
 // PREF: Startup extension Settings
-defaultPref("extensions.autoDisableScopes", 14);				// Install local extensions
+defaultPref("extensions.enabledScopes", 5); // [HIDDEN PREF]
+defaultPref("extensions.autoDisableScopes", 14); // Install local extensions
+/* 2661: disable bypassing 3rd party extension install prompts [FF82+]
+ * [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=1659530,1681331 ***/
+defaultPref("extensions.postDownloadThirdPartyPrompt", false);
 defaultPref("extensions.FirefoxMulti-AccountContainers@mozilla.whiteList", "");
 defaultPref("extensions.TemporaryContainers@stoically.whiteList", "");
 defaultPref("extensions.getAddons.cache.enabled", false);
@@ -437,9 +488,6 @@ defaultPref("extensions.getAddons.cache.enabled", false);
 // Disable sending additional analytics to web servers
 lockPref("beacon.enabled", false);
 // -------------------------------------
-// Remove temp files opened with an external application
-lockPref("browser.helperApps.deleteTempFileOnExit", true);
-// -------------------------------------
 // Disable UITour backend so there is no chance that a remote page can use it
 lockPref("browser.uitour.enabled", false);
 lockPref("browser.uitour.url", ""); // Defense-in-depth
@@ -449,6 +497,9 @@ lockPref("devtools.debugger.remote-enabled", false); // [DEFAULT: false]
 // -------------------------------------
 // Remove special permissions for certain mozilla domains [FF35+]
 lockPref("permissions.manager.defaultsUrl", "");
+// -------------------------------------
+// use punycode in idn to prevent spoofing
+defaultPref("network.IDN_show_punycode", true); 
 // -------------------------------------
 // Enforce PDFJS, disable PDFJS scripting
 lockPref("pdfjs.disabled", false);          // [DEFAULT: false]
@@ -462,13 +513,11 @@ lockPref("dom.payments.defaults.saveCreditCard", false);
 // Disable Displaying Javascript in History URLs
 lockPref("browser.urlbar.filter.javascript", true);
 //
+// prevent mouse middle click on new tab button to trigger searches or page loads
+lockPref("browser.tabs.searchclipboardfor.middleclick", false);
+//
 // PREF: show all matches in Findbar
 lockPref("findbar.highlightAll", true);
-//
-// EXTENSIONS
-//
-// Disable extensions suggestions
-lockPref("extensions.webservice.discoverURL", "");
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // SHUTDOWN & SANITIZING
@@ -481,14 +530,49 @@ lockPref("privacy.history.custom", true);
 //
 // Enable Firefox to clear items on shutdown
 defaultPref("privacy.sanitize.sanitizeOnShutdown", false);
+// SANITIZE ON SHUTDOWN: IGNORES "ALLOW" SITE EXCEPTIONS
+//
+// Set/enforce what items to clear on shutdown [SETUP-CHROME]
+defaultPref("privacy.clearOnShutdown.cache", true);
+defaultPref("privacy.clearOnShutdown.downloads", true); // [DEFAULT: true]
+defaultPref("privacy.clearOnShutdown.formdata", true); // [DEFAULT: true]
+defaultPref("privacy.clearOnShutdown.history", false); // [DEFAULT: true]
+defaultPref("privacy.clearOnShutdown.sessions", true); // [DEFAULT: true]
+// defaultPref("privacy.clearOnShutdown.siteSettings", false); // [DEFAULT: false]
+// -------------------------------------
+// Set Session Restore to clear on shutdown [FF34+]
+// defaultPref("privacy.clearOnShutdown.openWindows", true);
+//
+// SANITIZE ON SHUTDOWN: RESPECTS "ALLOW" SITE EXCEPTIONS FF103+
+//
+// Set "Cookies" and "Site Data" to clear on shutdown
+defaultPref("privacy.clearOnShutdown.cookies", true); // Cookies
+defaultPref("privacy.clearOnShutdown.offlineApps", true); // Site Data
+//
+// SANITIZE MANUAL: IGNORES "ALLOW" SITE EXCEPTIONS
+//
+// Reset default items to clear with Ctrl-Shift-Del
+defaultPref("privacy.cpd.cache", true); // [DEFAULT: true]
+defaultPref("privacy.cpd.formdata", true); // Form & Search History
+defaultPref("privacy.cpd.history", true); // Browsing & Download History
+defaultPref("privacy.cpd.offlineApps", true); // Offline Website Data
+defaultPref("privacy.cpd.sessions", true); // [DEFAULT: true]
+defaultPref("privacy.cpd.offlineApps", true); // [DEFAULT: false]
+defaultPref("privacy.cpd.cookies", true);
+// -------------------------------------
+// Reset default "Time range to clear" for "Clear Recent History"
+// 0=everything, 1=last hour, 2=last two hours, 3=last four hours, 4=today
+defaultPref("privacy.sanitize.timeSpan", 0);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // RFP (resistFingerprinting)
 // >>>>>>>>>>>>>>>>>>>>>
 //
+defaultPref("privacy.resistFingerprinting", false); // 4501: Disable ResistFingerPrinting
 // Enable RFP on Private Mode if the original pref is false
 defaultPref("privacy.resistFingerprinting.pbmode", true); // [FF114+]
 // -------------------------------------
+defaultPref("privacy.resistFingerprinting.letterboxing", false); 	// 4504 [pointless if not using RFP]
 // Set new window size rounding max values [FF55+]
 defaultPref("privacy.window.maxInnerWidth", 1600);
 defaultPref("privacy.window.maxInnerHeight", 900);
@@ -508,6 +592,8 @@ defaultPref("browser.link.open_newwindow", 3); // [DEFAULT: 3]
 // -------------------------------------
 // Set all open window methods to abide by "browser.link.open_newwindow"
 defaultPref("browser.link.open_newwindow.restriction", 0);
+//
+defaultPref("webgl.disabled", false); // Unnecessary
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // DON'T TOUCH
@@ -604,6 +690,7 @@ lockPref("signon.recipes.remoteRecipes.enabled", false);
 // -------------------------------------
 // Worthless features
 lockPref("browser.tabs.firefox-view", false);       // Disable Firefox View
+defaultPref("browser.tabs.firefox-view-next", false);
 lockPref("browser.firefox-view.feature-tour", "{\"screen\":\"\",\"complete\":true}"); // disable the Firefox View tour from popping up
 lockPref("dom.flyweb.enabled", false);              // Disable flyweb
 // -------------------------------------
@@ -620,8 +707,6 @@ lockPref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", f
 lockPref("browser.aboutwelcome.enabled", false);                  // disable Intro screens
 lockPref("browser.chrome.toolbar_tips", false);                   // Disable useless UI-tooltips
 lockPref("browser.disableResetPrompt", true);					            // Don't ask the user to reset Firefox
-lockPref("browser.download.autohideButton", false);		            // Don't autohide the download button
-lockPref("browser.helperApps.deleteTempFileOnExit", true); 			  // Remove temp files opened with an external application
 lockPref("browser.messaging-system.whatsNewPanel.enabled", false);
 lockPref("browser.preferences.moreFromMozilla", false);           // Hide "More from Mozilla" in Settings
 lockPref("browser.selfsupport.url", "");
@@ -635,6 +720,25 @@ lockPref("privacy.usercontext.about_newtab_segregation.enabled", true);
 lockPref("security.family_safety.mode", 0);                       // Disable Windows Microsoft Family Safety cert [FF50+] [WINDOWS]
 lockPref("security.tls.version.enable-deprecated", false); 				// 6010: enforce no TLS 1.0/1.1 downgrades
 lockPref("toolkit.coverage.enabled", false);
+//
+/** [SECTION] QUERY STRIPPING
+ * currently we set the same query stripping list that brave uses:
+ * https://github.com/brave/brave-core/blob/f337a47cf84211807035581a9f609853752a32fb/browser/net/brave_site_hacks_network_delegate_helper.cc#L29
+ */
+defaultPref("privacy.query_stripping.strip_list", "__hsfp __hssc __hstc __s _hsenc _openstat dclid fbclid gbraid gclid hsCtaTracking igshid mc_eid ml_subscriber ml_subscriber_hash msclkid oft_c oft_ck oft_d oft_id oft_ids oft_k oft_lk oft_sk oly_anon_id oly_enc_id rb_clickid s_cid twclid vero_conv vero_id wbraid wickedid yclid");
+/**
+ * librewolf specific pref that allows to include the query stripping lists in uBO by default.
+ * the asset file is fetched every 7 days.
+ */
+defaultPref("librewolf.uBO.assetsBootstrapLocation", "https://gitlab.com/librewolf-community/browser/source/-/raw/main/assets/uBOAssets.json");
+//
+/** [SECTION] LOGGING
+ * these prefs are off by default in the official Mozilla builds,
+ * so it only makes sense that we also disable them.
+ * See https://gitlab.com/librewolf-community/settings/-/issues/240
+ */
+pref("browser.dom.window.dump.enabled", false);
+pref("devtools.console.stdout.chrome", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // Advanced Betterfox section
@@ -724,7 +828,6 @@ defaultPref("webgl.renderer-string-override", " ");
 defaultPref("webgl.vendor-string-override", " ");
 
 lockPref("browser.compactmode.show", true);                     // Enable compact mode to be used
-defaultPref("browser.download.useDownloadDir", false);			    // Always ask where to save the download
 
 // Enable Firefox to use userChomeCSS
 defaultPref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
