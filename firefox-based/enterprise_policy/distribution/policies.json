@@ -247,7 +247,7 @@
                 "https://xdaforums.com/",
                 "https://youtube.com/"
             ],
-            "Block": ["https://facebook.com/","https://instagram.com/","https://twitter.com/","https://x.com/"],
+            "Block": ["https://instagram.com/","https://twitter.com/","https://x.com/"],
             "RejectTracker": true
         },
         "EnableTrackingProtection": {

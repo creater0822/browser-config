@@ -208,13 +208,13 @@
     "https://intellectual.insprill.net"
   ],
   "urbanDictionary": {
-    "enabled": false,
+    "enabled": true,
     "unsupportedUrls": "bypass",
     "frontend": "ruralDictionary",
     "redirectType": "main_frame"
   },
   "ruralDictionary": [
-    "https://rd.vern.cc"
+    "https://ruraldictionary.esmailelbob.xyz"
   ],
   "stackOverflow": {
     "enabled": false,
