@@ -1,8 +1,5 @@
 no-csp-reports: * true
 no-large-media: behind-the-scene false
-* * 3p block
-* * 3p-frame block
-* * 3p-script block
 * 360yield.com * block
 * 3lift.com * block
 * 6sc.co * block
