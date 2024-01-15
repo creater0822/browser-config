@@ -15,6 +15,7 @@ Windows Registry Editor Version 5.00
 "CloudAPAuthEnabled"=dword:00000000
 "CloudPrintProxyEnabled"=dword:00000000
 "DefaultBrowserSettingEnabled"=dword:00000000
+"DefaultGeolocationSetting"=dword:00000002
 "DefaultSensorsSetting"=dword:00000002
 "DefaultSerialGuardSetting"=dword:00000002
 "DesktopSharingHubEnabled"=dword:00000001
@@ -24,15 +25,24 @@ Windows Registry Editor Version 5.00
 "ForceGoogleSafeSearch"=dword:00000000
 "MediaRecommendationsEnabled"=dword:00000000
 "MetricsReportingEnabled"=dword:00000000
+"NetworkThrottlingEnabled"=dword:00000000
 "PaymentMethodQueryEnabled"=dword:00000000
 "PromotionalTabsEnabled"=dword:00000000
+"PromptForDownloadLocation"=dword:00000001
+"RemoteAccessHostAllowRelayedConnection"=dword:00000000
+"RemoteAccessHostAllowUiAccessForRemoteAssistance"=dword:00000000
+"RemoteAccessHostFirewallTraversal"=dword:00000000
+"RemoteAccessHostUdpPortRange"=""
 "RemoteDebuggingAllowed"=dword:00000000
 "SafeBrowsingExtendedReportingEnabled"=dword:00000000
+"SafeBrowsingForTrustedSourcesEnabled"=dword:00000000
 "ShowCastIconInToolbar"=dword:00000000
 "ShowHomeButton"=dword:00000001
+"SpokenFeedbackEnabled"=dword:00000000
 "SyncDisabled"=dword:00000001
 "UserFeedbackAllowed"=dword:00000000
 "WebRtcEventLogCollectionAllowed"=dword:00000000
+"WebRtcUdpPortRange"=""
 "WindowOcclusionEnabled"=dword:00000001
 ;"EnableMediaRouter"=dword:00000000
 
