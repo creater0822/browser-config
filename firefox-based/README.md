@@ -1,92 +1,22 @@
-# Firefox config
-This folder is my personal Firefox configutation, which is designed only for myself and a handful of people that I personally know of. If you've stumbled on my repo while looking to hardening your Firefox, I'd strictly recommend looking at projects like: LibreWolf, Betterfox, Arkenfox user.js or Narsil user.js
+# Librewolf config
+This folder is my personal hardened Librewolf configutation, which is designed only for myself and a handful of people that I personally know of.
 
 ## Enterprise policy & auto-config
 If you're on Windows:
 1. Download the latest ADMX templates from: https://github.com/mozilla/policy-templates/releases
 2. Place `mozilla.admx`, `mozilla.admx` and `en-US` folder in `%systemRoot%\PolicyDefinitions`
-3. (*if not already done*) Install Firefox Developer Edition:
-    * **Either** download from [Mozilla's website](https://www.mozilla.org/en-US/firefox/all/#product-desktop-developer) .
-    * **Or** use Winget: `winget install -e --id Mozilla.Firefox.DeveloperEdition`
-4. Extract everything from `enterprise_policy.zip` into `%programfiles%\Firefox Developer Edition\`, I've included a shortcut in the files btw.
+3. (*if not already done*) Install Librewolf:
+    * Download from the [official website](https://librewolf.net/installation/) if on Windows and check the option for the updater from the setup.
+4. Extract everything from `enterprise_policy.zip` into `%programfiles%\Librewolf\`, I've included a shortcut in the files btw.
 
-## Firefox profiles
-Highly recommended to use is **Profile Switcher for Firefox**: A tool that allows seamless profile switching without the need of [about:profiles](about:profiles). In order to make the extension work, an additional application is needed. Choose one of two methods:
+## <s>Firefox profiles</s>
+The extension doesn't work in Librewolf
+
+<s>Highly recommended to use is **Profile Switcher for Firefox**: A tool that allows seamless profile switching without the need of [about:profiles](about:profiles). In order to make the extension work, an additional application is needed. Choose one of two methods:
 - [Recommended] Install from Winget: `winget install -e --id nulldev.ProfileSwitcherforFirefox`
 - Download the latest x64.msi from: https://github.com/null-dev/firefox-profile-switcher-connector/releases
 
-Then from within any Firefox profile > Extension icon > Manage profiles > Cog icon, check 'Dark mode' and 'Apply in all profiles'.
-
-### ffProfile Arkenfox
-**How to install:**
-1. Download the latest release from: https://github.com/arkenfox/user.js/releases/
-2. Navigate to [about:profiles](about:profiles) in the URL bar, press "Create a New Profile" and name it *ffProfile_Arkenfox* .
-3. On the new profile entry, press "Open Folder" on **Root Directory** .
-4. Extract everything from `ffProfile_Arkenfox.zip`, also extract `update.bat` and `prefsCleaner.bat` from the `user.js-[latest version].zip` .
-5. Run `update.bat` as Administrator, then select 'Y' (yes) to also run the **prefsCleaner**.
-
-<details>
-  <summary>Included in <b>prefs.js</b></summary>
-
-  ```
-    My preferred UI preset.
-  ```
-</details>
-<details>
-  <summary>Included in <b>user-overrides.js</b></summary>
-
-  ```
-    Re-enabled URL-bar live search suggestions.
-    Starting page and new tabs set to `about:home`
-    Disabled Sanitize On Shutdown
-    Disabled websites from requesting Geo and XR access
-    Disabled RFP (ResistFingerPrinting)
-    Don't disable WebGL (pointless to do when not using RFP)
-    Enabled DRM-content
-    Disable raw TCP socket support (mozTCPSocket)
-    Don't monitor OS online/offline connection state
-    Disallow NTLMv1 unless through HTTPS
-    Some anti-breakage settings to Arkenfox user.js
-    Enabled Encrypted client Hello
-    Disabled vulnerable ciphers
-    UserChromeCSS settings
-  ```
-</details>
-<details>
-  <summary>Included extensions (as .xpi)</summary>
-
-  ```
-    CookiesAutoDelete (doesn't work that great with Multi-Account Container)
-    Canvas Blocker (compensate for disabling RFP)
-    LibRedirect (redirects popular webservices to alternative front-ends)
-    Skip Redirects (skips redirect-URLs)
-  ```
-</details>
-<details>
-  <summary>Search Engines</summary>
-
-  ```
-    Default: Startpage.com
-    Added: SearXNG NicFab
-    Added: Chocolatey package search
-    Added: RSWiki
-  ```
-</details>
-
-### ffProfile Weakfox:
-**How to install:**
-1. Navigate to [about:profiles](about:profiles) in the URL bar, press "Create a New Profile" and name it *ffProfile_Weakfox* .
-2. On the new profile entry, press "Open Folder" on **Root Directory** .
-3. Extract everything from `ffProfile_Weakfox.zip`, that's it.
-
-<details>
-  <summary>Search Engines</summary>
-
-  ```
-    UserChromeCSS
-    Search Engine preset: Same as ffProfile Arkenfox
-  ```
-</details>
+Then from within any Firefox profile > Extension icon > Manage profiles > Cog icon, check 'Dark mode' and 'Apply in all profiles'.</s>
 
 ## Credits:
 - Narsil user.js: https://codeberg.org/Narsil/user.js

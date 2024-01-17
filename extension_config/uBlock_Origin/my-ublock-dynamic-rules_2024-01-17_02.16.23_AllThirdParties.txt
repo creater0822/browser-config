@@ -3,12 +3,14 @@ no-large-media: behind-the-scene false
 * * 3p-frame block
 * * 3p-script block
 * 1antiphonon.online * noop
+* 1drv.com * noop
 * 2freethinking.online * noop
 * 360yield.com * block
 * 3lift.com * block
 * 6sc.co * block
 * aaxads.com * block
 * acm.org * noop
+* ad-delivery.net * block
 * ad.gt * block
 * addthis.com * block
 * addtoany.com * block
@@ -121,6 +123,8 @@ no-large-media: behind-the-scene false
 * footprint.net * noop
 * forgecdn.net * noop
 * stats.framasoft.org * block
+* framerstatic.com * noop
+* framerusercontent.com * noop
 * frspecifics.com * block
 * fsdn.com * noop
 * futo.org * noop
@@ -184,6 +188,7 @@ no-large-media: behind-the-scene false
 * kavin.rocks * noop
 * speedtesta.kpn.com * noop
 * kxcdn.com * noop
+* l-msedge.net * noop
 * liberapay.com * noop
 * lijit.com * block
 * live-video.net * noop
@@ -224,6 +229,7 @@ no-large-media: behind-the-scene false
 * omegacdn.net * noop
 * omroep.nl * noop
 * onedrive.akadns.net * noop
+* api.onedrive.com * noop
 * onesignal.com * block
 * onrender.com * noop
 * oopspam.com * noop
@@ -253,7 +259,9 @@ no-large-media: behind-the-scene false
 * rtmark.net * block
 * rubiconproject.com * block
 * rudderlabs.com * block
+* s-msedge.net * noop
 * scalia.network * noop
+* scientific-python.org * noop
 * scorecardresearch.com * block
 * searchmovieapi.com * noop
 * sentry.io * block
@@ -279,6 +287,7 @@ no-large-media: behind-the-scene false
 * static.pub * noop
 * steamcdn-a.akamaihd.net * noop
 * steamstatic.com * noop
+* adcdn.ster.nl * block
 * storage.googleapis.com * noop
 * streamable.com * noop
 * super-copy.com * block
@@ -369,6 +378,8 @@ discord.com discordapp.com * noop
 discord.com discordapp.net * noop
 discord.com giphy.com * noop
 discord.com tenor.com * noop
+beta.dopple.ai run.app * noop
+beta.dopple.ai sc-static.net * noop
 dropbox.com arkoselabs.com * noop
 dropbox.com dropboxcaptcha.com * noop
 dropbox.com dropboxstatic.com * noop
@@ -382,6 +393,9 @@ facebook.com fbcdn.net * noop
 facebook.com fbsbx.com * noop
 fandom.com wikia.nocookie.net * noop
 dragonballfanon.fandom.com fandom.com * noop
+finalfantasy.fandom.com finalfantasy.fandom.com * noop
+pokemon-uranium.fandom.com fandom.com * noop
+venetica.fandom.com venetica.fandom.com * noop
 nl.farnell.com dotomi.com * noop
 fearlessrevolution.com g1.akamai.net * noop
 geogebra.org piwik.pro * noop
@@ -417,11 +431,14 @@ kissasian.fm draplay2.pro * noop
 kongregate.com kongcdn.com * noop
 linkedin.com licdn.com * noop
 liquicity.com * 3p-script noop
+onedrive.live.com l-0003.l-msedge.net * noop
+onedrive.live.com msocdn.com * noop
 outlook.live.com microsoft.com * noop
 outlook.live.com msn.com * noop
 lyrics.com stands4.com * noop
 makeuseof.com b-cdn.net * noop
 makeuseof.com makeuseofimages.com * noop
+survey2.medallia.eu medallia.com * noop
 mi.com appmifile.com * noop
 mi.com mi-img.com * noop
 mi.com wsdvs.com * noop
@@ -437,6 +454,8 @@ mumuplayer.com mumuglobal.com * noop
 mumuplayer.com netease.com * noop
 about.musixmatch.com website-files.com * noop
 nebula.tv osano.com * noop
+www.neoseeker.com nsstatic.net * noop
+www.neoseeker.com staticneo.com * noop
 netflix.com netflix.com * noop
 netflix.com nflxext.com * noop
 netflix.com nflxso.net * noop
@@ -468,8 +487,10 @@ phoronix.com phoronix.net * noop
 pinterest.com pinimg.com * noop
 pixiv.net pixiv.org * noop
 pixiv.net pximg.net * noop
+postimg.cc postimgs.org * noop
 programiz.com programiz.pro * noop
 proton.me prismic.io * noop
+www.quora.com quoracdn.net * noop
 razer.com razerzone.com * noop
 realpython.com realpython.net * noop
 reddit.com redd.it * noop
@@ -482,6 +503,7 @@ rossmanngroup.com freshchat.com * noop
 rumble.com rmbl.ws * noop
 rumble.com stackpathcdn.com * noop
 rune-server.org rune-server.ee * noop
+app.runwayml.com zdassets.com * noop
 sciencedirect.com sciencedirectassets.com * noop
 mangaplus.shueisha.co.jp tokyo-cdn.com * noop
 similarweb.com similarcdn.com * noop
