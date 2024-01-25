@@ -148,6 +148,7 @@
                 "installation_mode": "blocked"
             }
         },
+        "HardwareAcceleration": true,
         "NoDefaultBookmarks": true,
         "Extensions": {
             "Uninstall": [
