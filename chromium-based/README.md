@@ -5,6 +5,7 @@ This folder is my personal Chromium-based browser configutation, which absolutel
 
 ## Thorium - The best browser *(if you know what you're up to)*
 1. Download/install from GitHub: https://github.com/Alex313031/thorium
+    - Best to worst: AVX2 > AVX > SSE3, check if your CPU supports: https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2
 2. Run `chromium.reg` to apply my settings. *(Make sure to audit my config in your favorite text editor!)*
 3. Some browser settings that you'll have to go over manually.
 4. Set chrome://flags
@@ -20,6 +21,8 @@ This folder is my personal Chromium-based browser configutation, which absolutel
     | block-insecure-private-network-requests       |   Enabled   |
     | enable-parallel-downloading                   |   Enabled   |
     | tab-hover-card-images                         |   Enabled   |
+    | close-window-with-last-tab                    |    Never    |
+    | allow-insecure-downloads                      |   Enabled   |
 5. (optional) Download LibRedirect from this page: https://libredirect.github.io/download_chromium.html
 
 ## Brave - Chromium with bloatware
