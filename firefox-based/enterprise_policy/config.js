@@ -718,6 +718,7 @@ lockPref("privacy.partition.bloburl_per_partition_key", true);    // [FF118+] Se
 lockPref("privacy.usercontext.about_newtab_segregation.enabled", true);
 lockPref("security.family_safety.mode", 0);                       // Disable Windows Microsoft Family Safety cert [FF50+] [WINDOWS]
 lockPref("security.tls.version.enable-deprecated", false); 				// 6010: enforce no TLS 1.0/1.1 downgrades
+//lockPref("browser.ssb.enabled", true);                            // Firefox Web App (Mozilla's trying to compete with 7Road and removed it)
 lockPref("toolkit.coverage.enabled", false);
 //
 /** [SECTION] QUERY STRIPPING

@@ -23,6 +23,11 @@ This folder is my personal Chromium-based browser configutation, which absolutel
     | tab-hover-card-images                         |   Enabled   |
     | close-window-with-last-tab                    |    Never    |
     | allow-insecure-downloads                      |   Enabled   |
+    | enable-tab-audio-muting                       |   Enabled   |
+    | camera-mic-preview                            |   Enabled   |
+    | one-time-permission                           |   Enabled   |
+    | allow-insecure-localhost                      |   Enabled   |
+    | scrollable-tabstrip                           |   Enabled   |
 5. (optional) Download LibRedirect from this page: https://libredirect.github.io/download_chromium.html
 
 ## Brave - Chromium with bloatware
