@@ -348,6 +348,8 @@ lockPref("browser.urlbar.pocket.featureGate", false); // [FF116+] [DEFAULT: fals
 lockPref("browser.urlbar.suggest.pocket", false);
 lockPref("browser.urlbar.trending.featureGate", false); // [FF118+] Disable urlbar trending search suggestions
 lockPref("browser.urlbar.weather.featureGate", false); // [FF108+] [DEFAULT: false]
+lockPref("browser.contentanalysis.default_allow", false); // [FF124+] [DEFAULT: false]
+lockPref("browser.urlbar.yelp.featureGate", false); // [FF124+] [DEFAULT: false]
 // -------------------------------------
 // Disable merino
 lockPref("browser.urlbar.merino.enabled", false);
