@@ -133,6 +133,9 @@ lockPref("toolkit.telemetry.dap_helper_owner", "");
 lockPref("toolkit.telemetry.dap_leader", "");
 lockPref("toolkit.telemetry.dap_leader_owner", "");
 lockPref("toolkit.telemetry.dap_task1_enabled", false);
+lockPref("toolkit.telemetry.dap_task1_taskid", "");
+lockPref("toolkit.telemetry.dap_visit_counting_enabled", false);
+lockPref("toolkit.telemetry.dap_visit_counting_experiment_list", "[]");
 lockPref("toolkit.telemetry.debugSlowSql", false);
 lockPref("toolkit.telemetry.hybridContent.enabled", false);
 lockPref("toolkit.telemetry.pioneer-new-studies-available", false);
@@ -143,8 +146,12 @@ lockPref("toolkit.telemetry.shutdownPingSender.backgroundtask.enabled", false);
 lockPref("toolkit.telemetry.shutdownPingSender.enabledFirstSession", false);
 lockPref("toolkit.telemetry.testing.overrideProductsCheck", false);
 lockPref("toolkit.telemetry.unifiedIsOptIn", false);
+lockPref("toolkit.telemetry.user_characteristics_ping.opt-out", true);
 lockPref("browser.newtabpage.activity-stream.telemetry.structuredIngestion.endpoint", "");
 lockPref("browser.newtabpage.activity-stream.telemetry.ut.events", false);
+lockPref("browser.search.serpEventTelemetryCategorization.enabled", false);
+lockPref("browser.urlbar.searchEngagementTelemetry.enabled", false);
+lockPref("identity.fxaccounts.telemetry.clientAssociationPing.enabled", false);
 // -------------------------------------
 // Skip checking omni.ja and other files
 lockPref("corroborator.enabled", false);
@@ -171,6 +178,10 @@ lockPref("browser.contentblocking.database.enabled", false);
 // Disable celebrating milestone toast when certain numbers of trackers are blocked
 lockPref("browser.contentblocking.cfr-milestone.enabled", false);
 // -------------------------------------
+// Content analysis
+lockPref("browser.contentanalysis.enabled", false);
+lockPref("browser.contentanalysis.default_result", 0);
+// -------------------------------------
 // Disable Default Browser Agent
 lockPref("default-browser-agent.enabled", false); // [WINDOWS]
 //
@@ -193,6 +204,11 @@ lockPref("extensions.shield-recipe-client.enabled", false);
 // Disable Crash Reports
 lockPref("breakpad.reportURL", "");
 lockPref("browser.tabs.crashReporting.sendReport", false); // [FF44+]
+lockPref("browser.contentblocking.report.mobile-android.url", "");
+lockPref("browser.contentblocking.report.mobile-ios.url", "");
+lockPref("browser.contentblocking.report.vpn-android.url", "");
+lockPref("browser.contentblocking.report.vpn-ios.url", "");
+lockPref("browser.contentblocking.report.vpn-promo.url", "");
 lockPref("browser.crashReports.unsubmittedCheck.autoSubmit", false);
 lockPref("browser.crashReports.unsubmittedCheck.enabled", false);
 lockPref("browser.tabs.crashReporting.includeURL", false);
