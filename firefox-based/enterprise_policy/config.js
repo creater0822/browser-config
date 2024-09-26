@@ -63,7 +63,7 @@ defaultPref("geo.provider.network.url", "https://location.services.mozilla.com/v
 // Disable using the OS's geolocation service
 defaultPref("geo.provider.ms-windows-location", false); // [WINDOWS]
 defaultPref("geo.provider.use_corelocation", false); // [MAC]
-defaultPref("geo.provider.use_gpsd", false); // [LINUX]
+defaultPref("geo.provider.use_gpsd", false); // [LINUX] [HIDDEN PREF]
 defaultPref("geo.provider.geoclue.always_high_accuracy", false); // [LINUX]
 defaultPref("geo.provider.use_geoclue", false); // [FF102+] [LINUX]
 // -------------------------------------
@@ -103,6 +103,8 @@ lockPref("browser.discovery.enabled", false);
 // -------------------------------------
 // Disable shopping experience [FF116+]
 lockPref("browser.shopping.experience2023.enabled", false); // [DEFAULT: false]
+lockPref("browser.shopping.experience2023.opted", 2);
+lockPref("browser.shopping.experience2023.active", false);
 //
 // TELEMETRY
 //
@@ -355,6 +357,9 @@ lockPref("browser.urlbar.speculativeConnect.enabled", false);
 // 5010 Disable dropdown suggestions with empty query
 lockPref("browser.urlbar.suggest.topsites", false);
 //
+// Disable urlbar clipboard suggestions [FF118+]
+lockPref("browser.urlbar.clipboard.featureGate", false);
+//
 // -------------------------------------
 // Disable urlbar telemetry-related suggestions
 lockPref("browser.urlbar.addons.featureGate", false); // [FF115+]
@@ -422,6 +427,9 @@ defaultPref("dom.security.https_only_mode", false); // [FF76+]
 defaultPref("dom.security.https_only_mode_pbm", true); // [FF80+]
 // 1 = Don't allow cross-origin sub-resources to open HTTP authentication credentials dialogs
 defaultPref("network.auth.subresource-http-auth-allow", 1);
+//
+defaultPref("security.tls.enable_kyber", true);
+defaultPref("network.http.http3.enable_kyber", true);
 //
 // Display warning on the padlock for "broken security"
 lockPref("security.ssl.treat_unsafe_negotiation_as_broken", true);
@@ -497,6 +505,8 @@ defaultPref("extensions.postDownloadThirdPartyPrompt", false);
 defaultPref("extensions.FirefoxMulti-AccountContainers@mozilla.whiteList", "");
 defaultPref("extensions.TemporaryContainers@stoically.whiteList", "");
 defaultPref("extensions.getAddons.cache.enabled", false);
+// Enforce SmartBlock shims (about:compat) [FF81+]
+defaultPref("extensions.webcompat.enable_shims", true); // [HIDDEN PREF] [DEFAULT: true]
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // MISCELLANEOUS
@@ -516,7 +526,9 @@ lockPref("devtools.debugger.remote-enabled", false); // [DEFAULT: false]
 lockPref("permissions.manager.defaultsUrl", "");
 // -------------------------------------
 // use punycode in idn to prevent spoofing
-defaultPref("network.IDN_show_punycode", true); 
+defaultPref("network.IDN_show_punycode", true);
+//
+defaultPref("widget.non-native-theme.enabled", true); // [DEFAULT: true]
 // -------------------------------------
 // Enforce PDFJS, disable PDFJS scripting
 lockPref("pdfjs.disabled", false);          // [DEFAULT: false]
@@ -535,6 +547,12 @@ lockPref("browser.tabs.searchclipboardfor.middleclick", false);
 //
 // PREF: show all matches in Findbar
 lockPref("findbar.highlightAll", true);
+// -------------------------------------
+// Disable Relay email feature
+lockPref("signon.firefoxRelay.feature", "disabled");
+// -------------------------------------
+// Disable Privacy-Preserving Attribution
+lockPref("dom.private-attribution.submission.enabled", false);
 //
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // SHUTDOWN & SANITIZING
